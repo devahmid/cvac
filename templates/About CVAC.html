@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le CVAC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>::-webkit-scrollbar { display: none;}</style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        'cvac-blue': '#2B5A87',
+                        'cvac-gold': '#D4AF37',
+                        'cvac-light-blue': '#4A7BA7',
+                        'cvac-cream': '#F8F6F0',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-montserrat bg-white">
+
+<header id="header" class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <div class="flex items-center space-x-4">
+                <div class="w-16 h-16 bg-cvac-blue rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">CVAC</span>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-cvac-blue">Conseil de la Vie Associative</h1>
+                    <p class="text-sm text-gray-600">Choisy-le-Roi</p>
+                </div>
+            </div>
+            
+            <nav class="hidden lg:flex space-x-8">
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Accueil</a>
+                <a href="#" class="text-cvac-blue font-semibold hover:text-cvac-light-blue transition-colors">Le CVAC</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Missions & Valeurs</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Les Membres</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Actualités</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Contact</a>
+            </nav>
+            
+            <button class="lg:hidden text-cvac-blue">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="page-hero-section" class="bg-gradient-to-br from-cvac-blue to-cvac-light-blue h-[400px] flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="text-center text-white">
+                <div class="inline-block bg-white/10 backdrop-blur-sm rounded-full px-6 py-2 mb-6">
+                    <span class="text-sm font-semibold">À propos du CVAC</span>
+                </div>
+                <h1 class="text-5xl font-bold mb-6">Découvrez le Conseil de la Vie Associative</h1>
+                <p class="text-xl max-w-3xl mx-auto leading-relaxed opacity-90">
+                    Une instance consultative créée pour renforcer la démocratie participative et valoriser le tissu associatif de Choisy-le-Roi
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="origin-section" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="inline-flex items-center bg-cvac-cream px-4 py-2 rounded-full mb-6">
+                        <i class="fa-solid fa-clock-rotate-left text-cvac-blue mr-2"></i>
+                        <span class="text-sm font-semibold text-cvac-blue">Origine & Historique</span>
+                    </div>
+                    <h2 class="text-4xl font-bold text-cvac-blue mb-6">Une initiative au service de la vie associative</h2>
+                    <div class="space-y-6 text-gray-700 leading-relaxed">
+                        <p class="text-lg">
+                            Le Conseil de la Vie Associative de Choisy-le-Roi (CVAC) est né d'une <strong class="text-cvac-blue">volonté politique forte</strong> de Monsieur le Maire et de l'élu à la vie associative.
+                        </p>
+                        <p>
+                            Lancé initialement en 2020, le projet a connu une phase de concertation approfondie en 2022 avec les acteurs associatifs locaux. Cette démarche participative a permis de <strong class="text-cvac-blue">co-construire</strong> l'instance avec ceux qui la composent.
+                        </p>
+                        <p>
+                            Le 22 mai 2024, le conseil municipal a officiellement approuvé la création du CVAC, marquant ainsi une nouvelle ère pour la vie associative choisyenne.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8 grid grid-cols-3 gap-4">
+                        <div class="text-center p-4 bg-cvac-cream rounded-xl">
+                            <div class="text-3xl font-bold text-cvac-blue mb-1">2020</div>
+                            <div class="text-sm text-gray-600">Lancement</div>
+                        </div>
+                        <div class="text-center p-4 bg-cvac-cream rounded-xl">
+                            <div class="text-3xl font-bold text-cvac-blue mb-1">2022</div>
+                            <div class="text-sm text-gray-600">Concertation</div>
+                        </div>
+                        <div class="text-center p-4 bg-cvac-cream rounded-xl">
+                            <div class="text-3xl font-bold text-cvac-blue mb-1">2024</div>
+                            <div class="text-sm text-gray-600">Validation</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="w-full h-auto max-h-96 overflow-hidden rounded-2xl shadow-2xl">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/timeline-photo-city-hall-meeting-democratic-process-french-architecture-professional-photography.png" alt="Democratic meeting at city hall, elected officials and citizens collaborating, French civic architecture, professional photography" />
+                    </div>
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-cvac-gold rounded-2xl flex items-center justify-center shadow-xl transform rotate-12">
+                        <i class="fa-solid fa-landmark text-white text-3xl transform -rotate-12"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="framework-section" class="py-20 bg-cvac-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center bg-white px-4 py-2 rounded-full mb-6">
+                    <i class="fa-solid fa-gavel text-cvac-blue mr-2"></i>
+                    <span class="text-sm font-semibold text-cvac-blue">Cadre & Fonctionnement</span>
+                </div>
+                <h2 class="text-4xl font-bold text-cvac-blue mb-4">Un cadre structuré et démocratique</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Le CVAC s'inscrit dans un cadre officiel garantissant son indépendance et sa légitimité
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div id="consultative-role-card" class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="w-16 h-16 bg-cvac-blue rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-comments text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-cvac-blue mb-4">Instance Consultative</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Le CVAC est un <strong>organe de réflexion et de propositions</strong>, créé pour faciliter le dialogue entre les associations et la municipalité.
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-cvac-gold mr-3 mt-1"></i>
+                            <span>Espace d'écoute et de débat démocratique</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-cvac-gold mr-3 mt-1"></i>
+                            <span>Force de proposition pour les projets associatifs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-cvac-gold mr-3 mt-1"></i>
+                            <span>Lieu de concertation et de co-construction</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="independence-card" class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="w-16 h-16 bg-cvac-gold rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-shield-halved text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-cvac-blue mb-4">Indépendance & Autonomie</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Le CVAC fonctionne de manière <strong>autonome et indépendante</strong>, tout en maintenant un lien privilégié avec la municipalité.
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-cvac-gold mr-3 mt-1"></i>
+                            <span>Liberté de parole et d'expression</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-cvac-gold mr-3 mt-1"></i>
+                            <span>Décisions prises collectivement par les membres</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-cvac-gold mr-3 mt-1"></i>
+                            <span>Représentativité garantie du tissu associatif</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="support-card" class="bg-gradient-to-r from-cvac-blue to-cvac-light-blue rounded-2xl shadow-xl p-10 text-white">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center mb-6">
+                            <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-handshake-angle text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">Soutien du Service DLC</h3>
+                        </div>
+                        <p class="text-lg leading-relaxed opacity-90">
+                            Le service Développement Local et Citoyenneté (DLC) de la mairie assure un rôle d'appui, de coordination et de soutien logistique au CVAC.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                            <i class="fa-solid fa-clipboard-list text-3xl mb-3"></i>
+                            <div class="text-sm font-semibold">Coordination</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                            <i class="fa-solid fa-users-gear text-3xl mb-3"></i>
+                            <div class="text-sm font-semibold">Appui Logistique</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                            <i class="fa-solid fa-bullhorn text-3xl mb-3"></i>
+                            <div class="text-sm font-semibold">Communication</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                            <i class="fa-solid fa-file-contract text-3xl mb-3"></i>
+                            <div class="text-sm font-semibold">Suivi Administratif</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="role-section" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center bg-cvac-cream px-4 py-2 rounded-full mb-6">
+                    <i class="fa-solid fa-bullseye text-cvac-blue mr-2"></i>
+                    <span class="text-sm font-semibold text-cvac-blue">Notre Rôle</span>
+                </div>
+                <h2 class="text-4xl font-bold text-cvac-blue mb-4">Interface privilégiée entre associations et municipalité</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Le CVAC joue un rôle central dans l'animation et la structuration de la vie associative choisyenne
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div id="role-card-1" class="bg-cvac-cream rounded-2xl p-8 hover:shadow-xl transition-shadow">
+                    <div class="w-20 h-20 bg-cvac-blue rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa-solid fa-bridge text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-cvac-blue mb-4 text-center">Passerelle Institutionnelle</h3>
+                    <p class="text-gray-700 text-center leading-relaxed">
+                        Faciliter les échanges entre le monde associatif et les instances municipales pour une meilleure compréhension mutuelle
+                    </p>
+                </div>
+
+                <div id="role-card-2" class="bg-cvac-cream rounded-2xl p-8 hover:shadow-xl transition-shadow">
+                    <div class="w-20 h-20 bg-cvac-gold rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa-solid fa-lightbulb text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-cvac-blue mb-4 text-center">Espace de Réflexion</h3>
+                    <p class="text-gray-700 text-center leading-relaxed">
+                        Offrir un lieu de débat constructif et de réflexion collective sur les enjeux de la vie associative locale
+                    </p>
+                </div>
+
+                <div id="role-card-3" class="bg-cvac-cream rounded-2xl p-8 hover:shadow-xl transition-shadow">
+                    <div class="w-20 h-20 bg-cvac-light-blue rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa-solid fa-rocket text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-cvac-blue mb-4 text-center">Moteur de Dynamisme</h3>
+                    <p class="text-gray-700 text-center leading-relaxed">
+                        Relancer et renforcer la dynamique associative en favorisant les collaborations et les projets communs
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-gradient-to-br from-cvac-cream to-white rounded-2xl shadow-lg p-10">
+                <div class="flex items-start space-x-6">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 bg-cvac-blue rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-quote-left text-white text-2xl"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-xl text-gray-700 italic leading-relaxed mb-4">
+                            "Le CVAC est avant tout un espace d'écoute, de dialogue et de co-construction. Notre mission est de porter la voix des associations et de contribuer à une vie associative plus forte, plus solidaire et plus inclusive."
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-cvac-blue rounded-full overflow-hidden">
+                                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="President" class="w-full h-full object-cover" />
+                            </div>
+                            <div>
+                                <div class="font-semibold text-cvac-blue">Présidence du CVAC</div>
+                                <div class="text-sm text-gray-600">Conseil de la Vie Associative</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="objectives-section" class="py-20 bg-cvac-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-cvac-blue mb-4">Nos Objectifs Fondamentaux</h2>
+                <p class="text-xl text-gray-600">Les piliers qui guident notre action quotidienne</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-cvac-blue/10 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-arrows-spin text-cvac-blue text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-cvac-blue mb-2">Relancer la dynamique associative</h4>
+                            <p class="text-gray-600 text-sm">Insuffler une nouvelle énergie au tissu associatif choisyen</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-cvac-gold/10 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-vote-yea text-cvac-gold text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-cvac-blue mb-2">Garantir la démocratie participative</h4>
+                            <p class="text-gray-600 text-sm">Assurer une représentation équitable de toutes les voix</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-cvac-light-blue/10 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-scale-balanced text-cvac-light-blue text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-cvac-blue mb-2">Préserver l'indépendance</h4>
+                            <p class="text-gray-600 text-sm">Maintenir l'autonomie de décision et d'action</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-cvac-blue/10 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-users text-cvac-blue text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-cvac-blue mb-2">Assurer la représentativité</h4>
+                            <p class="text-gray-600 text-sm">Refléter la diversité du monde associatif local</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-cvac-gold/10 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-hands-helping text-cvac-gold text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-cvac-blue mb-2">Favoriser la concertation</h4>
+                            <p class="text-gray-600 text-sm">Créer des espaces de dialogue et d'échange constructif</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-cvac-light-blue/10 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-heart text-cvac-light-blue text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-cvac-blue mb-2">Valoriser le bénévolat</h4>
+                            <p class="text-gray-600 text-sm">Reconnaître et promouvoir l'engagement citoyen</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta-section" class="py-20 bg-gradient-to-r from-cvac-blue to-cvac-light-blue">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white mb-6">
+                Découvrez nos missions et nos valeurs
+            </h2>
+            <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                Explorez en détail les missions du CVAC et les valeurs qui guident notre action quotidienne au service des associations
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#" class="bg-white text-cvac-blue px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Missions & Valeurs
+                </a>
+                <a href="#" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-cvac-blue transition-colors">
+                    Rencontrer les Membres
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer id="footer" class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-12 bg-cvac-blue rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold">CVAC</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Conseil de la Vie Associative</h3>
+                        <p class="text-gray-400">Choisy-le-Roi</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 mb-4">
+                    Instance consultative au service des associations et des habitants de Choisy-le-Roi.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-brands fa-facebook text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-brands fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Navigation</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Le CVAC</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Missions & Valeurs</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Les Membres</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Actualités</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                <div class="space-y-2 text-gray-400">
+                    <p class="flex items-center">
+                        <i class="fa-solid fa-envelope mr-2"></i>
+                        cvac@choisy-le-roi.fr
+                    </p>
+                    <p class="flex items-center">
+                        <i class="fa-solid fa-map-marker-alt mr-2"></i>
+                        Mairie de Choisy-le-Roi
+                    </p>
+                </div>
+            

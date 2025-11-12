@@ -1,0 +1,283 @@
+<main>
+  <section class="bg-gradient-to-br from-cvac-cream to-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <div class="flex items-center justify-center mb-4">
+          <div class="w-16 h-16 bg-cvac-blue rounded-xl flex items-center justify-center mr-4">
+            <i class="fa-solid fa-newspaper text-white text-2xl"></i>
+          </div>
+          <h1 class="text-5xl font-bold text-cvac-blue">Actualités & Événements</h1>
+        </div>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Suivez la vie du CVAC, nos événements et les opportunités de participation pour enrichir la dynamique associative choisyenne
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8 bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
+        <div class="flex flex-wrap gap-3">
+          <button class="bg-cvac-blue text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-cvac-light-blue transition-colors">
+            Toutes les actualités
+          </button>
+          <button class="bg-white border border-gray-300 text-gray-700 px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-50 transition-colors">
+            Réunions plénières
+          </button>
+          <button class="bg-white border border-gray-300 text-gray-700 px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-50 transition-colors">
+            Événements
+          </button>
+          <button class="bg-white border border-gray-300 text-gray-700 px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-50 transition-colors">
+            Projets inter-associatifs
+          </button>
+          <button class="bg-white border border-gray-300 text-gray-700 px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-50 transition-colors">
+            Appels à participation
+          </button>
+        </div>
+        
+        <div class="flex items-center gap-4">
+          <div class="relative">
+            <input type="text" placeholder="Rechercher..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cvac-blue focus:border-transparent">
+            <i class="fa-solid fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+          </div>
+          <select class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-cvac-blue focus:border-transparent">
+            <option>Plus récents</option>
+            <option>Plus anciens</option>
+            <option>Les plus lus</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <span class="inline-block bg-cvac-gold text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          À la Une
+        </span>
+      </div>
+      
+      <article class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-gradient-to-br from-cvac-cream to-white rounded-2xl p-8 shadow-lg">
+        <div>
+          <div class="flex items-center text-sm text-gray-600 mb-4">
+            <span class="bg-cvac-blue text-white px-3 py-1 rounded-full text-xs font-semibold mr-3">RÉUNION PLÉNIÈRE</span>
+            <i class="fa-regular fa-calendar mr-2"></i>
+            <span>15 Novembre 2024</span>
+            <i class="fa-regular fa-clock ml-4 mr-2"></i>
+            <span>5 min de lecture</span>
+          </div>
+          
+          <h2 class="text-3xl font-bold text-cvac-blue mb-4 leading-tight">
+            Réunion plénière du CVAC : Bilan 2024 et perspectives 2025
+          </h2>
+          
+          <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+            Notre dernière assemblée générale a rassemblé l'ensemble des membres du CVAC pour dresser le bilan de nos actions 2024 et valider les projets ambitieux pour l'année à venir. Retour sur une soirée riche en échanges et en propositions.
+          </p>
+          
+          <div class="flex items-center justify-between">
+            <button class="bg-cvac-blue text-white px-8 py-3 rounded-lg font-semibold hover:bg-cvac-light-blue transition-colors">
+              Lire l'article complet
+            </button>
+            
+            <div class="flex items-center text-gray-600">
+              <i class="fa-regular fa-eye mr-2"></i>
+              <span class="text-sm">245 vues</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <div class="h-80 overflow-hidden rounded-xl shadow-lg">
+            <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/f22828ccc5-82f01d7340dabf267d9c.png" alt="Professional meeting room" />
+          </div>
+          <div class="absolute -bottom-4 -right-4 w-16 h-16 bg-cvac-gold rounded-full flex items-center justify-center shadow-lg">
+            <i class="fa-solid fa-gavel text-white text-xl"></i>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" *ngIf="news.length === 0">
+        <!-- Actualités statiques si l'API ne retourne pas de données -->
+        <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="h-48 overflow-hidden">
+            <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/0d6a314bb1-43590b1c05566a54875f.png" alt="Community festival" />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold">ÉVÉNEMENT</span>
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="fa-regular fa-calendar mr-1"></i>
+                <span>8 Nov 2024</span>
+              </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-cvac-blue mb-3 leading-tight">
+              Festival Inter-Associatif : Un succès au-delà de nos espérances
+            </h3>
+            
+            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+              Plus de 20 associations choisyennes ont participé à cet événement fédérateur qui a attiré plus de 1000 visiteurs.
+            </p>
+            
+            <div class="flex items-center justify-between">
+              <a href="#" class="text-cvac-blue font-semibold text-sm hover:text-cvac-light-blue transition-colors">
+                Lire la suite →
+              </a>
+              <div class="flex items-center text-gray-500 text-xs">
+                <i class="fa-regular fa-eye mr-1"></i>
+                <span>189 vues</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="h-48 overflow-hidden">
+            <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/6aec785509-f74d4d0fc79569f232f5.png" alt="Youth volunteers" />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">PROJET</span>
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="fa-regular fa-calendar mr-1"></i>
+                <span>1 Nov 2024</span>
+              </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-cvac-blue mb-3 leading-tight">
+              Nouveau projet jeunesse : "Citoyens de demain"
+            </h3>
+            
+            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+              Cinq associations s'unissent pour créer un programme d'engagement citoyen destiné aux 16-25 ans.
+            </p>
+            
+            <div class="flex items-center justify-between">
+              <a href="#" class="text-cvac-blue font-semibold text-sm hover:text-cvac-light-blue transition-colors">
+                Lire la suite →
+              </a>
+              <div class="flex items-center text-gray-500 text-xs">
+                <i class="fa-regular fa-eye mr-1"></i>
+                <span>156 vues</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="h-48 overflow-hidden">
+            <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/4c50e08ca1-b2797e58c730d309a65c.png" alt="Workshop session" />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold">FORMATION</span>
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="fa-regular fa-calendar mr-1"></i>
+                <span>25 Oct 2024</span>
+              </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-cvac-blue mb-3 leading-tight">
+              Atelier "Gestion associative" : Inscriptions ouvertes
+            </h3>
+            
+            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+              Le CVAC organise une session de formation gratuite sur la gestion administrative et financière des associations.
+            </p>
+            
+            <div class="flex items-center justify-between">
+              <a href="#" class="text-cvac-blue font-semibold text-sm hover:text-cvac-light-blue transition-colors">
+                S'inscrire →
+              </a>
+              <div class="flex items-center text-gray-500 text-xs">
+                <i class="fa-regular fa-eye mr-1"></i>
+                <span>203 vues</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Liste dynamique depuis l'API -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" *ngIf="news.length > 0">
+        <article *ngFor="let item of news" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="h-48 overflow-hidden">
+            <img [src]="item.image || 'https://storage.googleapis.com/uxpilot-auth.appspot.com/f5aaa8b9f7-58cc20fbc6dd3a2b17c1.png'" [alt]="item.title" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">{{ item.category || 'ACTUALITÉ' }}</span>
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="fa-regular fa-calendar mr-1"></i>
+                <span>{{ item.date || '2024' }}</span>
+              </div>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-cvac-blue mb-3 leading-tight">
+              {{ item.title }}
+            </h3>
+            
+            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+              {{ item.content || item.excerpt }}
+            </p>
+            
+            <div class="flex items-center justify-between">
+              <a href="#" class="text-cvac-blue font-semibold text-sm hover:text-cvac-light-blue transition-colors">
+                Lire la suite →
+              </a>
+              <div class="flex items-center text-gray-500 text-xs" *ngIf="item.views">
+                <i class="fa-regular fa-eye mr-1"></i>
+                <span>{{ item.views }} vues</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-center items-center space-x-2">
+        <button class="px-3 py-2 border border-gray-300 rounded-lg text-gray-500 hover:bg-gray-50 transition-colors">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="px-4 py-2 bg-cvac-blue text-white rounded-lg font-semibold">1</button>
+        <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors">2</button>
+        <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors">3</button>
+        <span class="px-2 text-gray-500">...</span>
+        <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors">8</button>
+        <button class="px-3 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gradient-to-r from-cvac-blue to-cvac-light-blue">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i class="fa-solid fa-envelope text-white text-2xl"></i>
+      </div>
+      <h2 class="text-3xl font-bold text-white mb-4">
+        Ne manquez aucune actualité du CVAC
+      </h2>
+      <p class="text-xl text-blue-100 mb-8">
+        Inscrivez-vous à notre newsletter pour recevoir nos dernières nouvelles et opportunités de participation
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+        <input type="email" placeholder="Votre adresse email" class="flex-1 px-6 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:ring-opacity-50">
+        <button class="bg-cvac-gold text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors">
+          S'abonner
+        </button>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>::-webkit-scrollbar { display: none;}</style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        'cvac-blue': '#2B5A87',
+                        'cvac-gold': '#D4AF37',
+                        'cvac-light-blue': '#4A7BA7',
+                        'cvac-cream': '#F8F6F0',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-montserrat bg-white">
+
+<header id="header" class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <div class="flex items-center space-x-4">
+                <div class="w-16 h-16 bg-cvac-blue rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">CVAC</span>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-cvac-blue">Conseil de la Vie Associative</h1>
+                    <p class="text-sm text-gray-600">Choisy-le-Roi</p>
+                </div>
+            </div>
+            
+            <nav class="hidden lg:flex space-x-8">
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Accueil</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Le CVAC</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Missions & Valeurs</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Les Membres</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Actualités</a>
+                <a href="#" class="text-cvac-blue font-semibold hover:text-cvac-light-blue transition-colors">Contact</a>
+            </nav>
+            
+            <button class="lg:hidden text-cvac-blue">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="contact-hero-section" class="bg-gradient-to-br from-cvac-cream to-white h-[400px] flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl font-bold text-cvac-blue mb-6">Contactez-nous</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                Vous avez une question, un projet à nous proposer ou souhaitez en savoir plus sur le CVAC ? N'hésitez pas à nous contacter, nous serons ravis d'échanger avec vous.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact-main-section" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div id="contact-form-container">
+                    <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                        <div class="mb-8">
+                            <h2 class="text-3xl font-bold text-cvac-blue mb-2">Envoyez-nous un message</h2>
+                            <p class="text-gray-600">Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+                        </div>
+                        
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="firstname" class="block text-sm font-semibold text-gray-700 mb-2">Prénom *</label>
+                                    <input type="text" id="firstname" name="firstname" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cvac-blue focus:border-transparent transition-all" placeholder="Votre prénom">
+                                </div>
+                                <div>
+                                    <label for="lastname" class="block text-sm font-semibold text-gray-700 mb-2">Nom *</label>
+                                    <input type="text" id="lastname" name="lastname" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cvac-blue focus:border-transparent transition-all" placeholder="Votre nom">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cvac-blue focus:border-transparent transition-all" placeholder="votre.email@exemple.fr">
+                            </div>
+                            
+                            <div>
+                                <label for="association" class="block text-sm font-semibold text-gray-700 mb-2">Association (si concerné)</label>
+                                <input type="text" id="association" name="association" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cvac-blue focus:border-transparent transition-all" placeholder="Nom de votre association">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">Sujet *</label>
+                                <select id="subject" name="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cvac-blue focus:border-transparent transition-all">
+                                    <option value="">Sélectionnez un sujet</option>
+                                    <option value="information">Demande d'information</option>
+                                    <option value="adhesion">Adhésion au CVAC</option>
+                                    <option value="projet">Proposition de projet</option>
+                                    <option value="partenariat">Partenariat</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message *</label>
+                                <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cvac-blue focus:border-transparent transition-all resize-none" placeholder="Décrivez votre demande ou votre message..."></textarea>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <input type="checkbox" id="consent" name="consent" required class="mt-1 w-4 h-4 text-cvac-blue border-gray-300 rounded focus:ring-cvac-blue">
+                                <label for="consent" class="ml-3 text-sm text-gray-600">
+                                    J'accepte que mes données soient collectées et traitées conformément à la <a href="#" class="text-cvac-blue hover:underline">politique RGPD</a> du CVAC. *
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-cvac-blue text-white px-8 py-4 rounded-lg font-semibold hover:bg-cvac-light-blue transition-colors flex items-center justify-center space-x-2">
+                                <span>Envoyer le message</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="contact-info-container" class="space-y-8">
+                    <div class="bg-cvac-cream rounded-2xl p-8 border border-gray-200">
+                        <div class="flex items-start space-x-4 mb-6">
+                            <div class="w-14 h-14 bg-cvac-blue rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-envelope text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-cvac-blue mb-2">Email</h3>
+                                <p class="text-gray-600 mb-3">Pour toute demande d'information ou question, contactez-nous par email :</p>
+                                <a href="mailto:cvac@choisy-le-roi.fr" class="text-cvac-blue font-semibold hover:text-cvac-light-blue transition-colors">
+                                    cvac@choisy-le-roi.fr
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                        <div class="flex items-start space-x-4 mb-6">
+                            <div class="w-14 h-14 bg-cvac-gold rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-map-marker-alt text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-cvac-blue mb-2">Adresse</h3>
+                                <p class="text-gray-600 mb-3">Service Développement Local et Citoyenneté</p>
+                                <div class="space-y-1 text-gray-700">
+                                    <p class="font-semibold">Mairie de Choisy-le-Roi</p>
+                                    <p>Place Gabriel Péri</p>
+                                    <p>94600 Choisy-le-Roi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-cvac-blue to-cvac-light-blue rounded-2xl p-8 text-white">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-14 h-14 bg-white bg-opacity-20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-clock text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Horaires d'accueil</h3>
+                                <p class="text-blue-100 mb-4">Le service DLC est à votre disposition :</p>
+                                <div class="space-y-2 text-blue-50">
+                                    <p><span class="font-semibold">Lundi - Vendredi :</span> 9h00 - 12h30 / 14h00 - 17h30</p>
+                                    <p><span class="font-semibold">Samedi :</span> Sur rendez-vous uniquement</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-cvac-cream rounded-2xl p-8 border border-gray-200">
+                        <h3 class="text-xl font-bold text-cvac-blue mb-4">Suivez-nous</h3>
+                        <p class="text-gray-600 mb-6">Restez connectés avec le CVAC sur les réseaux sociaux pour ne rien manquer de notre actualité.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-cvac-blue rounded-lg flex items-center justify-center hover:bg-cvac-light-blue transition-colors">
+                                <i class="fa-brands fa-facebook text-white text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-cvac-blue rounded-lg flex items-center justify-center hover:bg-cvac-light-blue transition-colors">
+                                <i class="fa-brands fa-twitter text-white text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-cvac-blue rounded-lg flex items-center justify-center hover:bg-cvac-light-blue transition-colors">
+                                <i class="fa-brands fa-instagram text-white text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-cvac-blue rounded-lg flex items-center justify-center hover:bg-cvac-light-blue transition-colors">
+                                <i class="fa-brands fa-linkedin text-white text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq-section" class="py-20 bg-cvac-cream">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-cvac-blue mb-4">Questions fréquentes</h2>
+                <p class="text-xl text-gray-600">Trouvez rapidement les réponses à vos questions</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="text-lg font-semibold text-cvac-blue">Comment adhérer au CVAC ?</span>
+                        <i class="fa-solid fa-chevron-down text-cvac-blue"></i>
+                    </button>
+                    <div class="px-8 pb-6 text-gray-600">
+                        Les membres du CVAC sont élus parmi les associations de Choisy-le-Roi. Pour participer aux élections, votre association doit être enregistrée auprès du service DLC.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="text-lg font-semibold text-cvac-blue">Quel est le rôle du CVAC ?</span>
+                        <i class="fa-solid fa-chevron-down text-cvac-blue"></i>
+                    </button>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="text-lg font-semibold text-cvac-blue">Comment proposer un projet inter-associatif ?</span>
+                        <i class="fa-solid fa-chevron-down text-cvac-blue"></i>
+                    </button>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <button class="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                        <span class="text-lg font-semibold text-cvac-blue">Puis-je assister aux réunions du CVAC ?</span>
+                        <i class="fa-solid fa-chevron-down text-cvac-blue"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer id="footer" class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-12 bg-cvac-blue rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold">CVAC</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Conseil de la Vie Associative</h3>
+                        <p class="text-gray-400">Choisy-le-Roi</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 mb-4">
+                    Instance consultative au service des associations et des habitants de Choisy-le-Roi.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-brands fa-facebook text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-brands fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Navigation</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Le CVAC</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Missions & Valeurs</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Les Membres</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Actualités</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                <div class="space-y-2 text-gray-400">
+                    <p class="flex items-center">
+                        <i class="fa-solid fa-envelope mr-2"></i>
+                        cvac@choisy-le-roi.fr
+                    </p>
+                    <p class="flex items-center">
+                        <i class="fa-solid fa-map-marker-alt mr-2"></i>
+                        Mairie de Choisy-le-Roi
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm">
+                © 2024 CVAC - Conseil de la Vie Associative de Choisy-le-Roi
+            </p>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Mentions légales</a>
+                <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">RGPD</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+window.addEventListener('load', function() {
+    const form = document.getElementById('contact-form');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = {
+            firstname: document.getElementById('firstname').value,
+            lastname: document.getElementById('lastname').value,
+            email: document.getElementById('email').value,
+            association: document.getElementById('association').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+        
+        console.log('Form submitted:', formData);
+        
+        alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
+        form.reset();
+    });
+});
+</script>
+
+</body>
+</html>

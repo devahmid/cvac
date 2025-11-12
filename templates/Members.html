@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Membres</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>::-webkit-scrollbar { display: none;}</style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        'cvac-blue': '#2B5A87',
+                        'cvac-gold': '#D4AF37',
+                        'cvac-light-blue': '#4A7BA7',
+                        'cvac-cream': '#F8F6F0',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-montserrat bg-white">
+
+<header id="header" class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <div class="flex items-center space-x-4">
+                <div class="w-16 h-16 bg-cvac-blue rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">CVAC</span>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-cvac-blue">Conseil de la Vie Associative</h1>
+                    <p class="text-sm text-gray-600">Choisy-le-Roi</p>
+                </div>
+            </div>
+            
+            <nav class="hidden lg:flex space-x-8">
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Accueil</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Le CVAC</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Missions & Valeurs</a>
+                <a href="#" class="text-cvac-blue font-semibold hover:text-cvac-light-blue transition-colors">Les Membres</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Actualités</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Contact</a>
+            </nav>
+            
+            <button class="lg:hidden text-cvac-blue">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="hero-members-section" class="bg-gradient-to-br from-cvac-cream to-white h-[400px] flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="text-center">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-cvac-gold rounded-full mb-6">
+                    <i class="fa-solid fa-users text-white text-3xl"></i>
+                </div>
+                <h1 class="text-5xl font-bold text-cvac-blue mb-6">Les Membres du CVAC</h1>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                    Découvrez les représentants des associations qui composent notre conseil et portent la voix du tissu associatif choisyenne auprès de la municipalité.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="members-overview-section" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-cvac-cream rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-cvac-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-user-check text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-cvac-blue mb-2">10-14</h3>
+                    <p class="text-gray-600">Membres actifs</p>
+                </div>
+                
+                <div class="bg-cvac-cream rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-cvac-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-calendar text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-cvac-blue mb-2">3 ans</h3>
+                    <p class="text-gray-600">Durée du mandat</p>
+                </div>
+                
+                <div class="bg-cvac-cream rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-cvac-light-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-vote-yea text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-cvac-blue mb-2">Élection</h3>
+                    <p class="text-gray-600">Mode de désignation</p>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-cvac-blue to-cvac-light-blue rounded-2xl p-8 text-white mb-16">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <i class="fa-solid fa-info-circle text-3xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3">Composition du Conseil</h3>
+                        <p class="text-blue-100 leading-relaxed mb-3">
+                            Les membres du CVAC sont élus parmi les associations de Choisy-le-Roi pour une durée de 3 ans, renouvelable une fois. Ils représentent la diversité du tissu associatif local et assurent le lien entre les associations et la municipalité.
+                        </p>
+                        <p class="text-blue-100 leading-relaxed">
+                            Le conseil est composé d'une présidence, d'une vice-présidence et de membres actifs qui participent aux réunions plénières et aux groupes de travail thématiques.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="leadership-section" class="py-16 bg-cvac-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-cvac-blue mb-4">Le Bureau</h2>
+                <p class="text-xl text-gray-600">Les responsables qui pilotent l'instance</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div id="president-card" class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="bg-gradient-to-br from-cvac-blue to-cvac-light-blue p-6 text-center">
+                        <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="President" class="w-full h-full object-cover">
+                        </div>
+                        <div class="inline-block bg-cvac-gold text-white px-4 py-1 rounded-full text-sm font-semibold mb-2">
+                            <i class="fa-solid fa-crown mr-1"></i> Président
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-cvac-blue mb-2">Jean-Michel Dupont</h3>
+                        <p class="text-cvac-gold font-semibold mb-4">Association Culturelle de Choisy</p>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Fort de 15 ans d'engagement associatif, Jean-Michel pilote le CVAC depuis sa création. Passionné par la culture et le lien social, il œuvre pour renforcer la collaboration entre associations et favoriser l'émergence de projets communs.
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa-solid fa-envelope mr-2"></i>
+                            <span>j.dupont@cvac-choisy.fr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="vice-president-card" class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="bg-gradient-to-br from-cvac-gold to-yellow-500 p-6 text-center">
+                        <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="Vice President" class="w-full h-full object-cover">
+                        </div>
+                        <div class="inline-block bg-cvac-blue text-white px-4 py-1 rounded-full text-sm font-semibold mb-2">
+                            <i class="fa-solid fa-star mr-1"></i> Vice-Présidente
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-cvac-blue mb-2">Sophie Martinez</h3>
+                        <p class="text-cvac-gold font-semibold mb-4">Solidarité et Entraide Choisyenne</p>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Engagée dans le secteur social depuis 20 ans, Sophie apporte son expertise en matière de solidarité et d'inclusion. Elle coordonne les groupes de travail thématiques et assure le suivi des projets inter-associatifs.
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa-solid fa-envelope mr-2"></i>
+                            <span>s.martinez@cvac-choisy.fr</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="members-grid-section" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-cvac-blue mb-4">Les Membres Actifs</h2>
+                <p class="text-xl text-gray-600">Représentants des associations choisyennes</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div id="member-card-1" class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-cvac-blue mr-4">
+                                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-cvac-blue">Pierre Lefebvre</h3>
+                                <p class="text-sm text-gray-500">Membre</p>
+                            </div>
+                        </div>
+                        <div class="bg-cvac-cream rounded-lg p-3 mb-3">
+                            <p class="text-sm font-semibold text-cvac-blue">Club Sportif de Choisy</p>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Ancien athlète et entraîneur, Pierre représente le secteur sportif au sein du CVAC. Il œuvre pour développer les partenariats entre clubs sportifs et promouvoir l'activité physique pour tous.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="member-card-2" class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-cvac-blue mr-4">
+                                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-cvac-blue">Marie Dubois</h3>
+                                <p class="text-sm text-gray-500">Membre</p>
+                            </div>
+                        </div>
+                        <div class="bg-cvac-cream rounded-lg p-3 mb-3">
+                            <p class="text-sm font-semibold text-cvac-blue">Les Amis de la Bibliothèque</p>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Bibliothécaire passionnée, Marie défend l'accès à la culture et à la lecture. Elle coordonne les actions culturelles et littéraires portées par les associations choisyennes.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="member-card-3" class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-cvac-blue mr-4">
+                                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-8.jpg" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-cvac-blue">Ahmed Benali</h3>
+                                <p class="text-sm text-gray-500">Membre</p>
+                            </div>
+                        </div>
+                        <div class="bg-cvac-cream rounded-lg p-3 mb-3">
+                            <p class="text-sm font-semibold text-cvac-blue">Association Jeunesse et Avenir</p>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Éducateur spécialisé, Ahmed travaille avec les jeunes depuis 10 ans. Il représente les associations dédiées à la jeunesse et porte les projets d'insertion et d'accompagnement.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="member-card-4" class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-cvac-blue mr-4">
+                                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-7.jpg" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-cvac-blue">Isabelle Moreau</h3>
+                                <p class="text-sm text-gray-500">Membre</p>
+                            </div>
+                        </div>
+                        <div class="bg-cvac-cream rounded-lg p-3 mb-3">
+                            <p class="text-sm font-semibold text-cvac-blue">Environnement et Citoyenneté</p>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Militante écologiste, Isabelle sensibilise aux enjeux environnementaux. Elle coordonne les initiatives de développement durable et les actions de préservation de l'environnement.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="member-card-5" class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-cvac-blue mr-4">
+                                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-cvac-blue">Thomas Bernard</h3>
+                                <p class="text-sm text-gray-500">Membre</p>
+                            </div>
+                        </div>
+                        <div class="bg-cvac-cream rounded-lg p-3 mb-3">
+                            <p class="text-sm font-semibold text-cvac-blue">Théâtre Amateur de Choisy</p>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Comédien et metteur en scène, Thomas anime la vie culturelle locale. Il développe les projets artistiques collaboratifs et favorise l'accès à la pratique théâtrale.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="member-card-6" class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-cvac-blue mr-4">
+                                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-cvac-blue">Fatima Kaddouri</h3>
+                                <p class="text-sm text-gray-500">Membre</p>
+                            </div>
+                        </div>
+                        <div class="bg-cvac-cream rounded-lg p-3 mb-3">
+                            <p class="text-sm font-semibold text-cvac-blue">Femmes Solidaires Choisy</p>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Travailleuse sociale, Fatima défend les droits des femmes et l'égalité. Elle pilote les actions de prévention et d'accompagnement des publics en situation de fragilité.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="member-card-7" class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-cvac-blue mr-4">
+                                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-9.jpg" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-cvac-blue">Luc Fontaine</h3>
+                                <p class="text-sm text-gray-500">Membre</p>
+                            </div>
+                        </div>
+                        <div class="bg-cvac-cream rounded-lg p-3 mb-3">
+                            <p class="text-sm font-semibold text-cvac-blue">Patrimoine et Mémoire</p>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Historien local, Luc valorise le patrimoine choisyenne. Il coordonne les actions de préservation de la mémoire collective et organise des événements historiques et culturels.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="member-card-8" class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-cvac-blue mr-4">
+                                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-cvac-blue">Nathalie Petit</h3>
+                                <p class="text-sm text-gray-500">Membre</p>
+                            </div>
+                        </div>
+                        <div class="bg-cvac-cream rounded-lg p-3 mb-3">
+                            <p class="text-sm font-semibold text-cvac-blue">Musique pour Tous</p>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Professeure de musique, Nathalie promeut l'éducation musicale accessible à tous. Elle développe les projets de pratique collective et d'éveil musical pour tous les âges.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="member-card-9" class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-cvac-blue mr-4">
+                                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-8.jpg" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-cvac-blue">David Chen</h3>
+                                <p class="text-sm text-gray-500">Membre</p>
+                            </div>
+                        </div>
+                        <div class="bg-cvac-cream rounded-lg p-3 mb-3">
+                            <p class="text-sm font-semibold text-cvac-blue">Innovation Numérique Locale</p>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Ingénieur informatique, David accompagne la transition numérique des associations. Il forme aux outils digitaux et développe des solutions technologiques adaptées.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join-section" class="py-20 bg-gradient-to-r from-cvac-blue to-cvac-light-blue">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <i class="fa-solid fa-handshake text-white text-5xl mb-6"></i>
+            <h2 class="text-4xl font-bold text-white mb-6">
+                Rejoignez l'aventure du CVAC
+            </h2>
+            <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                Votre association souhaite s'impliquer davantage dans la vie associative choisyenne ? Les prochaines élections du CVAC auront lieu en 2027. Restez informés des modalités de candidature.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#" class="bg-white text-cvac-blue px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Nous Contacter
+                </a>
+                <a href="#" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-cvac-blue transition-colors">
+                    En Savoir Plus
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer id="footer" class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-12 bg-cvac-blue rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold">CVAC</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Conseil de la Vie Associative</h3>
+                        <p class="text-gray-400">Choisy-le-Roi</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 mb-4">
+                    Instance consultative au service des associations et des habitants de Choisy-le-Roi.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-brands fa-facebook text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-brands fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Navigation</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Le CVAC</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Missions & Valeurs</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Les Membres</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Actualités</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                <div class="space-y-2 text-gray-400">
+                    <p class="flex items-center">
+                        <i

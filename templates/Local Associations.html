@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les associations de Choisy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>::-webkit-scrollbar { display: none;}</style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        'cvac-blue': '#2B5A87',
+                        'cvac-gold': '#D4AF37',
+                        'cvac-light-blue': '#4A7BA7',
+                        'cvac-cream': '#F8F6F0',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-montserrat bg-white">
+
+<header id="header" class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <div class="flex items-center space-x-4">
+                <div class="w-16 h-16 bg-cvac-blue rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">CVAC</span>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-cvac-blue">Conseil de la Vie Associative</h1>
+                    <p class="text-sm text-gray-600">Choisy-le-Roi</p>
+                </div>
+            </div>
+            
+            <nav class="hidden lg:flex space-x-8">
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Accueil</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Le CVAC</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Missions & Valeurs</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Les Membres</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Actualités</a>
+                <a href="#" class="text-cvac-blue font-semibold hover:text-cvac-light-blue transition-colors">Associations</a>
+                <a href="#" class="text-gray-700 hover:text-cvac-blue transition-colors">Contact</a>
+            </nav>
+            
+            <button class="lg:hidden text-cvac-blue">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="hero-section" class="bg-gradient-to-br from-cvac-cream to-white h-[400px] flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-6">
+                <span class="text-cvac-blue text-sm font-semibold uppercase tracking-wide">Tissu Associatif Local</span>
+            </div>
+            <h1 class="text-5xl font-bold text-cvac-blue mb-6 leading-tight">
+                Les Associations de Choisy-le-Roi
+            </h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                Découvrez la richesse et la diversité du tissu associatif choisyen. Plus de 200 associations œuvrent quotidiennement pour la vie culturelle, sportive, sociale et solidaire de notre ville.
+            </p>
+        </div>
+    </section>
+
+    <section id="introduction-section" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-cvac-blue mb-6">Un écosystème associatif dynamique</h2>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Le tissu associatif de Choisy-le-Roi représente un véritable pilier de la vie locale. Ces associations, diverses dans leurs domaines d'intervention, contribuent activement au lien social, à l'épanouissement personnel et collectif des habitants.
+                    </p>
+                    <p class="text-gray-700 mb-8 leading-relaxed">
+                        Le CVAC accompagne et valorise ces initiatives associatives en facilitant les échanges, en soutenant les projets collaboratifs et en portant la voix du monde associatif auprès de la municipalité.
+                    </p>
+                    <div class="grid grid-cols-3 gap-6 text-center">
+                        <div class="bg-cvac-cream rounded-lg p-4">
+                            <div class="text-3xl font-bold text-cvac-blue mb-2">200+</div>
+                            <div class="text-sm text-gray-600">Associations</div>
+                        </div>
+                        <div class="bg-cvac-cream rounded-lg p-4">
+                            <div class="text-3xl font-bold text-cvac-blue mb-2">15</div>
+                            <div class="text-sm text-gray-600">Domaines</div>
+                        </div>
+                        <div class="bg-cvac-cream rounded-lg p-4">
+                            <div class="text-3xl font-bold text-cvac-blue mb-2">5000+</div>
+                            <div class="text-sm text-gray-600">Bénévoles</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="w-full h-auto max-h-96 overflow-hidden rounded-2xl shadow-xl">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/af579db040-39109657f034eaa787aa.png" alt="diverse community groups and associations meeting in modern community center, people of different ages collaborating, warm atmosphere, professional photography" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="domains-section" class="py-16 bg-cvac-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-cvac-blue mb-4">Domaines d'activité</h2>
+                <p class="text-xl text-gray-600">Explorez la diversité des secteurs associatifs choisyens</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div id="sport-domain" class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                    <div class="w-16 h-16 bg-cvac-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-futbol text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-cvac-blue mb-2">Sport</h3>
+                    <p class="text-sm text-gray-600">Football, tennis, danse, arts martiaux...</p>
+                </div>
+
+                <div id="culture-domain" class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                    <div class="w-16 h-16 bg-cvac-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-palette text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-cvac-blue mb-2">Culture</h3>
+                    <p class="text-sm text-gray-600">Théâtre, musique, arts plastiques...</p>
+                </div>
+
+                <div id="solidarity-domain" class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                    <div class="w-16 h-16 bg-cvac-light-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-hands-helping text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-cvac-blue mb-2">Solidarité</h3>
+                    <p class="text-sm text-gray-600">Aide sociale, insertion, handicap...</p>
+                </div>
+
+                <div id="education-domain" class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-graduation-cap text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-cvac-blue mb-2">Éducation</h3>
+                    <p class="text-sm text-gray-600">Soutien scolaire, formation...</p>
+                </div>
+
+                <div id="environment-domain" class="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-shadow cursor-pointer">
+                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-leaf text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-cvac-blue mb-2">Environnement</h3>
+                    <p class="text-sm text-gray-600">Écologie, jardinage, nature...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-associations-section" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-cvac-blue mb-4">Associations à la une</h2>
+                <p class="text-xl text-gray-600">Découvrez quelques-unes de nos associations partenaires</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div id="association-card-1" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/51f433a722-a5bf64e66efdef647281.png" alt="youth sports club training session, children playing soccer, coach supervising, outdoor field, energetic atmosphere" />
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-cvac-blue rounded-full flex items-center justify-center mr-3">
+                                <i class="fa-solid fa-futbol text-white text-sm"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 font-medium">SPORT</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-cvac-blue mb-3">Club Sportif Choisyen</h3>
+                        <p class="text-gray-600 mb-4">Association sportive proposant football, basketball et activités jeunesse depuis plus de 30 ans.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">150 adhérents</span>
+                            <a href="#" class="text-cvac-blue font-semibold hover:text-cvac-light-blue">En savoir plus →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="association-card-2" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/dd3ef5c866-954182f8460f518eb38b.png" alt="community theater group rehearsing play, diverse actors on stage, dramatic lighting, creative atmosphere" />
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-cvac-gold rounded-full flex items-center justify-center mr-3">
+                                <i class="fa-solid fa-theater-masks text-white text-sm"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 font-medium">CULTURE</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-cvac-blue mb-3">Théâtre en Mouvement</h3>
+                        <p class="text-gray-600 mb-4">Compagnie théâtrale amateur proposant cours et spectacles pour tous les âges.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">80 adhérents</span>
+                            <a href="#" class="text-cvac-blue font-semibold hover:text-cvac-light-blue">En savoir plus →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="association-card-3" class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="h-48 overflow-hidden">
+                        <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/39939d80fb-3bd3e4a45adbdb1eab13.png" alt="volunteers helping elderly people, intergenerational solidarity, community support, warm caring atmosphere" />
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-cvac-light-blue rounded-full flex items-center justify-center mr-3">
+                                <i class="fa-solid fa-heart text-white text-sm"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 font-medium">SOLIDARITÉ</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-cvac-blue mb-3">Solidarité Choisyenne</h3>
+                        <p class="text-gray-600 mb-4">Association d'aide aux personnes en difficulté et de soutien aux familles.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">45 bénévoles</span>
+                            <a href="#" class="text-cvac-blue font-semibold hover:text-cvac-light-blue">En savoir plus →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resources-section" class="py-16 bg-cvac-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-cvac-blue mb-4">Ressources & Liens Utiles</h2>
+                <p class="text-xl text-gray-600">Accédez aux outils et informations pour les associations</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div id="city-directory-link" class="bg-white rounded-xl p-8 text-center hover:shadow-lg transition-shadow cursor-pointer group">
+                    <div class="w-16 h-16 bg-cvac-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-cvac-light-blue transition-colors">
+                        <i class="fa-solid fa-book text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-cvac-blue mb-4">Annuaire Municipal</h3>
+                    <p class="text-gray-600 mb-6">Consultez l'annuaire complet des associations sur le site de la Ville de Choisy-le-Roi</p>
+                    <div class="inline-flex items-center text-cvac-blue font-semibold group-hover:text-cvac-light-blue">
+                        <span class="mr-2">Accéder à l'annuaire</span>
+                        <i class="fa-solid fa-external-link-alt"></i>
+                    </div>
+                </div>
+
+                <div id="support-guide-link" class="bg-white rounded-xl p-8 text-center hover:shadow-lg transition-shadow cursor-pointer group">
+                    <div class="w-16 h-16 bg-cvac-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-500 transition-colors">
+                        <i class="fa-solid fa-file-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-cvac-blue mb-4">Guide des Subventions</h3>
+                    <p class="text-gray-600 mb-6">Téléchargez le guide pratique pour obtenir des aides municipales et départementales</p>
+                    <div class="inline-flex items-center text-cvac-blue font-semibold group-hover:text-cvac-light-blue">
+                        <span class="mr-2">Télécharger le guide</span>
+                        <i class="fa-solid fa-download"></i>
+                    </div>
+                </div>
+
+                <div id="contact-dlc-link" class="bg-white rounded-xl p-8 text-center hover:shadow-lg transition-shadow cursor-pointer group">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-600 transition-colors">
+                        <i class="fa-solid fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-cvac-blue mb-4">Service DLC</h3>
+                    <p class="text-gray-600 mb-6">Contactez le service Développement Local et Citoyenneté pour un accompagnement personnalisé</p>
+                    <div class="inline-flex items-center text-cvac-blue font-semibold group-hover:text-cvac-light-blue">
+                        <span class="mr-2">Nous contacter</span>
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="join-network-section" class="py-16 bg-gradient-to-r from-cvac-blue to-cvac-light-blue">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white mb-6">
+                Votre association fait-elle partie du réseau ?
+            </h2>
+            <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                Rejoignez le dynamisme associatif choisyen et bénéficiez de l'accompagnement du CVAC pour développer vos projets et renforcer vos liens avec la communauté.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#" class="bg-white text-cvac-blue px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Adhérer au CVAC
+                </a>
+                <a href="#" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-cvac-blue transition-colors">
+                    Créer une Association
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer id="footer" class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-12 bg-cvac-blue rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold">CVAC</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Conseil de la Vie Associative</h3>
+                        <p class="text-gray-400">Choisy-le-Roi</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 mb-4">
+                    Instance consultative au service des associations et des habitants de Choisy-le-Roi.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-brands fa-facebook text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-brands fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Navigation</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Le CVAC</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Missions & Valeurs</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Les Membres</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Actualités</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                <div class="space-y-2 text-gray-400">
+                    <p class="flex items-center">
+                        <i class="fa-solid fa-envelope mr-2"></i>
+                        cvac@choisy-le-roi.fr
+                    </p>
+                    <p class="flex items-center">
+                        <i class="fa-solid fa-map-marker-alt mr-2"></i>
+                        Mairie de Choisy-le-Roi
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm">
+                © 2024 CVAC - Conseil de la Vie Associative de Choisy-le-Roi
+            </p>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Mentions légales</a>
+                <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">RGPD</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

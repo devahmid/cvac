@@ -1,0 +1,92 @@
+<main>
+  <section class="bg-gradient-to-br from-cvac-cream to-white h-[400px] flex items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-5xl font-bold text-cvac-blue mb-6">Contactez-nous</h1>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+        Vous avez une question, un projet à nous proposer ou souhaitez en savoir plus sur le CVAC ? N'hésitez pas à nous contacter, nous serons ravis d'échanger avec vous.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+          <div class="mb-8">
+            <h2 class="text-3xl font-bold text-cvac-blue mb-2">Envoyez-nous un message</h2>
+            <p class="text-gray-600">Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+          </div>
+          
+          <form (ngSubmit)="onSubmit()" class="space-y-6" *ngIf="!submitted">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="firstname" class="block text-sm font-semibold text-gray-700 mb-2">Prénom *</label>
+                <input type="text" id="firstname" name="firstname" [(ngModel)]="formData.firstname" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cvac-blue">
+              </div>
+              <div>
+                <label for="lastname" class="block text-sm font-semibold text-gray-700 mb-2">Nom *</label>
+                <input type="text" id="lastname" name="lastname" [(ngModel)]="formData.lastname" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cvac-blue">
+              </div>
+            </div>
+            
+            <div>
+              <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
+              <input type="email" id="email" name="email" [(ngModel)]="formData.email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cvac-blue">
+            </div>
+            
+            <div>
+              <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">Sujet *</label>
+              <select id="subject" name="subject" [(ngModel)]="formData.subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cvac-blue">
+                <option value="">Sélectionnez un sujet</option>
+                <option value="information">Demande d'information</option>
+                <option value="adhesion">Adhésion au CVAC</option>
+                <option value="projet">Proposition de projet</option>
+                <option value="partenariat">Partenariat</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message *</label>
+              <textarea id="message" name="message" rows="6" [(ngModel)]="formData.message" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cvac-blue resize-none"></textarea>
+            </div>
+            
+            <div class="flex items-start">
+              <input type="checkbox" id="consent" name="consent" [(ngModel)]="formData.consent" required class="mt-1 w-4 h-4 text-cvac-blue border-gray-300 rounded">
+              <label for="consent" class="ml-3 text-sm text-gray-600">
+                J'accepte que mes données soient collectées et traitées conformément à la <a href="/legal" class="text-cvac-blue hover:underline">politique RGPD</a> du CVAC. *
+              </label>
+            </div>
+            
+            <div *ngIf="error" class="text-red-600 text-sm">{{ error }}</div>
+            
+            <button type="submit" class="w-full bg-cvac-blue text-white px-8 py-4 rounded-lg font-semibold hover:bg-cvac-light-blue transition-colors">
+              Envoyer le message
+            </button>
+          </form>
+          
+          <div *ngIf="submitted" class="text-center py-8">
+            <div class="text-green-600 mb-4">
+              <i class="fa-solid fa-check-circle text-4xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-cvac-blue mb-2">Message envoyé !</h3>
+            <p class="text-gray-600">Merci pour votre message. Nous vous répondrons dans les plus brefs délais.</p>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div class="bg-cvac-cream rounded-2xl p-8">
+            <h3 class="text-xl font-bold text-cvac-blue mb-2">Email</h3>
+            <a href="mailto:cvac@choisy-le-roi.fr" class="text-cvac-blue font-semibold hover:text-cvac-light-blue">cvac&#64;choisy-le-roi.fr</a>
+          </div>
+          
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <h3 class="text-xl font-bold text-cvac-blue mb-2">Adresse</h3>
+            <p class="text-gray-600">Mairie de Choisy-le-Roi<br>Place Gabriel Péri<br>94600 Choisy-le-Roi</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
