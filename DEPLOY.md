@@ -1,138 +1,241 @@
-# Guide de Déploiement - CVAC
+# 🚀 Guide de Déploiement CVAC - cvac-choisyleroi.fr
 
-## Préparation avant déploiement
+## 📋 Informations de Production
 
-### 1. Compiler l'application Angular
+- **Site web**: cvac-choisyleroi.fr
+- **Base de données**: u281164575_cvac
+- **Utilisateur MySQL**: u281164575_admin
+- **CDN Images**: Cloudinary (dxzvuvlye)
+
+---
+
+## ✅ Prérequis
+
+- [x] Base de données créée
+- [x] Mot de passe MySQL configuré dans `api/config.php`
+- [x] Cloudinary configuré
+- [x] Fichiers `.htaccess` créés
+
+---
+
+## 📦 Étape 1 : Préparer le Build Frontend
 
 ```bash
-# Installer les dépendances si ce n'est pas déjà fait
-npm install
-
-# Compiler pour la production
-npm run build:prod
+cd frontend
+ng build --configuration production
 ```
 
-Cette commande génère les fichiers dans le dossier `dist/`.
+Les fichiers seront générés dans `frontend/dist/cvac/` (ou `frontend/dist/` selon votre configuration Angular).
 
-### 2. Préparer les fichiers pour l'upload
+---
 
-Vous devez uploader sur votre hébergement mutualisé :
+## 📤 Étape 2 : Uploader les Fichiers
 
-#### Structure sur le serveur :
+### Structure sur le Serveur
 
 ```
-public_html/ (ou www/)
-│
-├── index.html                    ← Depuis dist/index.html
-├── *.js                          ← Tous les fichiers .js depuis dist/
-├── *.css                         ← Tous les fichiers .css depuis dist/
-├── favicon.ico                   ← Depuis dist/favicon.ico
-│
-├── api/                          ← Dossier complet depuis api/
-│   ├── config.php
-│   ├── members.php
-│   ├── news.php
-│   ├── contact.php
-│   └── database.sql              ← Pour import initial uniquement
-│
-└── .htaccess                     ← Depuis la racine du projet
+cvac-choisyleroi.fr/
+├── .htaccess                    # ✅ Uploader
+├── api/
+│   ├── .htaccess               # ✅ Uploader
+│   ├── config.php              # ✅ Avec mot de passe MySQL
+│   ├── cloudinary_config.php   # ✅ Déjà configuré
+│   ├── *.php                   # ✅ Tous les endpoints
+│   └── vendor/                 # ✅ Après composer install
+└── frontend/ (ou racine)
+    ├── .htaccess               # ✅ Uploader
+    ├── index.html              # ✅ Build Angular
+    ├── main.*.js               # ✅ Build Angular
+    ├── polyfills.*.js          # ✅ Build Angular
+    └── assets/                 # ✅ Build Angular
 ```
 
-## Étapes de déploiement
+### Commandes FTP/SFTP
 
-### Étape 1 : Créer la base de données
+```bash
+# Uploader tous les fichiers
+# Via FTP client ou commande scp
+```
 
-1. Connectez-vous à votre panneau d'hébergement (cPanel, Plesk, etc.)
-2. Ouvrez phpMyAdmin
-3. Créez une nouvelle base de données (ex: `cvac_db`)
-4. Créez un utilisateur MySQL et accordez-lui tous les droits sur cette base
-5. Importez le fichier `api/database.sql` dans cette base
+---
 
-### Étape 2 : Configurer l'API PHP
+## 🗄️ Étape 3 : Configurer la Base de Données
 
-1. Éditez le fichier `api/config.php` sur le serveur
-2. Modifiez les constantes de connexion :
-   ```php
-   define('DB_HOST', 'localhost');  // Ou l'adresse fournie par votre hébergeur
-   define('DB_NAME', 'cvac_db');    // Le nom de votre base
-   define('DB_USER', 'votre_user');  // Votre utilisateur MySQL
-   define('DB_PASS', 'votre_pass');  // Votre mot de passe MySQL
-   ```
+### Via phpMyAdmin
 
-### Étape 3 : Uploader les fichiers
+1. Connectez-vous à phpMyAdmin
+2. Sélectionnez la base `u281164575_cvac`
+3. Onglet "SQL"
+4. Copiez-collez le contenu de `api/database.sql`
+5. Exécutez
 
-#### Option A : Via FTP/SFTP
+### Vérifier
 
-1. Connectez-vous à votre serveur via FileZilla ou un autre client FTP
-2. Naviguez vers `public_html/` (ou `www/`)
-3. Uploader tous les fichiers depuis `dist/` vers la racine
-4. Uploader le dossier `api/` complet
-5. Uploader le fichier `.htaccess`
+```bash
+# Tester la connexion (si vous avez accès SSH)
+php api/test_db.php
+```
 
-#### Option B : Via cPanel File Manager
+---
 
-1. Connectez-vous à cPanel
-2. Ouvrez le File Manager
-3. Naviguez vers `public_html/`
-4. Uploader les fichiers un par un ou en archive ZIP (puis extraire)
+## 📚 Étape 4 : Installer les Dépendances PHP
 
-### Étape 4 : Vérifier les permissions
+### Via SSH (si disponible)
 
-- Le fichier `.htaccess` doit être présent à la racine
-- Les fichiers PHP doivent avoir les permissions 644
-- Les dossiers doivent avoir les permissions 755
+```bash
+cd api
+composer install --no-dev --optimize-autoloader
+```
 
-### Étape 5 : Tester l'application
+### Via FTP
 
-1. Visitez votre domaine : `https://votre-domaine.com`
-2. Vérifiez que la page d'accueil s'affiche correctement
-3. Testez la navigation entre les pages
-4. Testez le formulaire de contact : `https://votre-domaine.com/contact`
-5. Vérifiez les APIs :
-   - `https://votre-domaine.com/api/members.php`
-   - `https://votre-domaine.com/api/news.php`
+Si pas d'accès SSH, téléchargez le dossier `vendor/` depuis votre machine locale après avoir exécuté `composer install`.
 
-## Résolution des problèmes courants
+---
 
-### Problème : Erreur 404 sur les routes Angular
+## 🔧 Étape 5 : Configurer les Permissions
 
-**Solution** : Vérifiez que le fichier `.htaccess` est bien présent et que mod_rewrite est activé sur votre serveur.
+### Permissions des Fichiers
 
-### Problème : Les APIs ne fonctionnent pas
+```bash
+# Fichiers PHP
+chmod 644 api/*.php
 
-**Solutions** :
-- Vérifiez les identifiants de base de données dans `api/config.php`
-- Vérifiez que PHP est activé sur votre hébergement
-- Vérifiez les logs d'erreur PHP dans cPanel
+# Fichiers .htaccess
+chmod 644 .htaccess
+chmod 644 frontend/.htaccess
+chmod 644 api/.htaccess
 
-### Problème : Erreur CORS
+# Dossier uploads (si vous créez un dossier pour uploads locaux)
+chmod 755 uploads/
+chmod 755 uploads/documents/
+```
 
-**Solution** : Les headers CORS sont déjà configurés dans `api/config.php`. Si le problème persiste, contactez votre hébergeur.
+---
 
-### Problème : Les images ne s'affichent pas
+## 🧪 Étape 6 : Tests Post-Déploiement
 
-**Solution** : Vérifiez que les URLs des images dans les templates sont accessibles. Les images utilisent des URLs externes (Google Cloud Storage) qui devraient fonctionner.
+### 1. Test Frontend
 
-## Mise à jour de l'application
+Visitez : `https://cvac-choisyleroi.fr/`
 
-Pour mettre à jour l'application :
+Vérifiez :
+- ✅ La page d'accueil se charge
+- ✅ Le routing fonctionne (essayer `/about`, `/members`, etc.)
+- ✅ Les images s'affichent
+- ✅ Les styles sont appliqués
 
-1. Faites vos modifications dans le code source
-2. Recompilez : `npm run build:prod`
-3. Uploader uniquement les fichiers modifiés depuis `dist/`
-4. Si vous avez modifié les APIs PHP, uploader les fichiers PHP modifiés
+### 2. Test API
 
-## Sécurité
+```bash
+# Test membres
+curl https://cvac-choisyleroi.fr/api/members.php
 
-- Ne laissez jamais le fichier `api/config.php` avec des identifiants par défaut
-- Changez les mots de passe de la base de données régulièrement
-- Gardez une sauvegarde régulière de la base de données
-- Ne partagez jamais les identifiants de la base de données
+# Test actualités
+curl https://cvac-choisyleroi.fr/api/news.php
 
-## Support
+# Test associations
+curl https://cvac-choisyleroi.fr/api/associations.php
+```
 
-En cas de problème, vérifiez :
-1. Les logs d'erreur PHP dans votre panneau d'hébergement
-2. La console du navigateur (F12) pour les erreurs JavaScript
-3. Les logs Apache si disponibles
+### 3. Test Upload Cloudinary
 
+```bash
+curl -X POST https://cvac-choisyleroi.fr/api/upload.php \
+  -F "image=@test.jpg" \
+  -F "type=news"
+```
+
+---
+
+## 🔐 Étape 7 : Sécurité
+
+### Vérifications
+
+- [ ] Le fichier `api/config.php` n'est pas accessible publiquement
+- [ ] Le fichier `.env` n'existe pas ou est protégé
+- [ ] HTTPS est activé (recommandé)
+- [ ] Les permissions des fichiers sont correctes
+
+### Protection des Fichiers Sensibles
+
+Les fichiers `.htaccess` protègent déjà :
+- `config.php`
+- `cloudinary_config.php`
+- `.env`
+- `composer.json/lock`
+
+---
+
+## 📝 Checklist Complète
+
+### Avant Déploiement
+- [x] Build Angular créé (`ng build`)
+- [x] Mot de passe MySQL dans `config.php`
+- [x] Cloudinary configuré
+- [x] Fichiers `.htaccess` créés
+
+### Déploiement
+- [ ] Fichiers uploadés sur le serveur
+- [ ] Base de données créée (`database.sql`)
+- [ ] Dépendances PHP installées (`composer install`)
+- [ ] Permissions configurées
+
+### Tests
+- [ ] Frontend accessible
+- [ ] Routing Angular fonctionne
+- [ ] API répond correctement
+- [ ] Upload Cloudinary fonctionne
+- [ ] Images s'affichent
+
+### Sécurité
+- [ ] HTTPS activé
+- [ ] Fichiers sensibles protégés
+- [ ] Permissions correctes
+
+---
+
+## 🆘 Dépannage
+
+### Erreur 500
+
+1. Vérifier les logs d'erreur PHP
+2. Vérifier la syntaxe des fichiers `.htaccess`
+3. Vérifier que `mod_rewrite` est activé
+
+### Routing Angular ne fonctionne pas
+
+1. Vérifier `frontend/.htaccess`
+2. Vérifier que `mod_rewrite` est activé
+3. Vérifier les permissions (644)
+
+### API retourne 404
+
+1. Vérifier `api/.htaccess`
+2. Vérifier que les fichiers PHP sont bien uploadés
+3. Vérifier les permissions (644)
+
+### Erreur de connexion MySQL
+
+1. Vérifier le mot de passe dans `config.php`
+2. Vérifier que la base existe
+3. Tester avec `test_db.php`
+
+---
+
+## 📞 Support
+
+En cas de problème :
+1. Vérifier les logs d'erreur PHP
+2. Tester avec les scripts de test (`test_db.php`, `test_cloudinary.php`)
+3. Vérifier la configuration dans `config.php`
+
+---
+
+## 🎉 Une fois Déployé
+
+Votre site sera accessible à :
+- **Frontend**: https://cvac-choisyleroi.fr
+- **API**: https://cvac-choisyleroi.fr/api/
+
+Tout est prêt pour la production ! 🚀

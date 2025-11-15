@@ -1,0 +1,15 @@
+{
+    "name": "cvac/api",
+    "description": "API CVAC - Conseil de la Vie Associative de Choisy-le-Roi",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "cloudinary/cloudinary_php": "^2.0"
+    },
+    "autoload": {
+        "files": [
+            "cloudinary_config.php"
+        ]
+    }
+}
+

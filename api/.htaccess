@@ -1,0 +1,98 @@
+d# Configuration .htaccess pour CVAC - API PHP
+# Hébergement mutualisé
+
+# Activer le moteur de réécriture
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /api/
+
+    # Rediriger les requêtes vers les fichiers PHP correspondants
+    # Exemple: /api/members -> /api/members.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.*)$ $1.php [L]
+</IfModule>
+
+# Headers CORS pour l'API
+<IfModule mod_headers.c>
+    # Autoriser les requêtes depuis le domaine frontend
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+    Header set Access-Control-Max-Age "3600"
+    
+    # Gérer les requêtes OPTIONS (preflight)
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^(.*)$ $1 [R=200,L]
+</IfModule>
+
+# Empêcher l'accès direct aux fichiers sensibles
+<FilesMatch "^(config|cloudinary_config|composer|\.env)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Empêcher l'accès aux fichiers de configuration
+<FilesMatch "\.(json|lock|md|example)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Empêcher l'accès au dossier vendor
+<IfModule mod_rewrite.c>
+    RewriteRule ^vendor/ - [F,L]
+</IfModule>
+
+# Configuration PHP (si mod_php est disponible)
+<IfModule mod_php.c>
+    # Afficher les erreurs en développement (désactiver en production)
+    php_flag display_errors Off
+    php_flag log_errors On
+    
+    # Limite de taille d'upload (10MB)
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    
+    # Timeout
+    php_value max_execution_time 30
+    php_value max_input_time 30
+</IfModule>
+
+# Encodage UTF-8
+AddDefaultCharset UTF-8
+
+# Type MIME pour JSON
+AddType application/json .json
+
+# Compression pour les réponses JSON
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/plain
+</IfModule>
+
+# Désactiver la liste des répertoires
+Options -Indexes
+
+# Headers de sécurité
+<IfModule mod_headers.c>
+    # Protection XSS
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # Empêcher le MIME sniffing
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Empêcher le clickjacking
+    Header set X-Frame-Options "DENY"
+    
+    # Pas de cache pour les réponses API (sauf si spécifié)
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</IfModule>
+
+# Gestion des erreurs
+ErrorDocument 404 /api/error.php
+ErrorDocument 500 /api/error.php
+

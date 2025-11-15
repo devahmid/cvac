@@ -1,16 +1,18 @@
 <?php
-// Configuration de la base de données CVAC
-// Production - Hébergement mutualisé
+/**
+ * Configuration de production pour CVAC
+ * 
+ * ⚠️ IMPORTANT: 
+ * - Renommez ce fichier en config.production.php
+ * - Remplissez le mot de passe MySQL
+ * - Ne commitez JAMAIS ce fichier dans Git avec le mot de passe
+ */
+
+// Configuration de la base de données - Production
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'u281164575_cvac');
 define('DB_USER', 'u281164575_admin');
-define('DB_PASS', 'Elodie14061990@'); // ⚠️ À configurer avec le mot de passe MySQL
-
-// Configuration pour développement local (décommenter si nécessaire)
-// define('DB_HOST', 'localhost');
-// define('DB_NAME', 'cvac_db');
-// define('DB_USER', 'root');
-// define('DB_PASS', '');
+define('DB_PASS', 'VOTRE_MOT_DE_PASSE_MYSQL_ICI'); // ⚠️ À remplir
 
 // Configuration CORS pour hébergement mutualisé
 header('Access-Control-Allow-Origin: *');

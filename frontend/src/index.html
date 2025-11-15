@@ -8,10 +8,27 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'montserrat': ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            'cvac-blue': '#2B5A87',
+            'cvac-gold': '#D4AF37',
+            'cvac-light-blue': '#4A7BA7',
+            'cvac-cream': '#F8F6F0',
+          }
+        }
+      }
+    }
+  </script>
   <script>window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-<body>
+<body class="font-montserrat bg-white">
   <app-root></app-root>
 </body>
 </html>

@@ -10,13 +10,9 @@ import { RouterModule } from '@angular/router';
     <header class="bg-white shadow-lg sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
-          <a routerLink="/" class="flex items-center space-x-4">
-            <div class="w-16 h-16 bg-cvac-blue rounded-full flex items-center justify-center">
-              <span class="text-white font-bold text-xl">CVAC</span>
-            </div>
-            <div>
-              <h1 class="text-xl font-bold text-cvac-blue">Conseil de la Vie Associative</h1>
-              <p class="text-sm text-gray-600">Choisy-le-Roi</p>
+          <a routerLink="/" class="flex items-center">
+            <div class="w-16 h-16 flex items-center justify-center">
+              <img src="/assets/images/members/logo-def-CVAC.png" alt="Logo CVAC" class="w-full h-full object-contain">
             </div>
           </a>
           

@@ -1,40 +1,28 @@
-# Configuration pour hébergement mutualisé
-# Redirection vers index.html pour Angular (SPA)
+
+# Configuration .htaccess racine pour CVAC
+# Hébergement mutualisé
+
+# Activer le moteur de réécriture
 <IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  
-  # Ne pas réécrire les requêtes vers les fichiers existants
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  
-  # Ne pas réécrire les requêtes vers l'API PHP
-  RewriteCond %{REQUEST_URI} !^/api/
-  
-  # Rediriger toutes les autres requêtes vers index.html
-  RewriteRule ^ index.html [L]
+    RewriteEngine On
+    RewriteBase /
+
+    # Rediriger les requêtes API vers le dossier api/
+    RewriteCond %{REQUEST_URI} ^/api/(.*)$
+    RewriteRule ^api/(.*)$ api/$1 [L]
+
+    # Rediriger toutes les autres requêtes vers le frontend
+    # (si le frontend est dans un sous-dossier, ajustez le chemin)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(?!api/)(.*)$ frontend/$1 [L]
 </IfModule>
 
-# Headers de sécurité
-<IfModule mod_headers.c>
-  Header set X-Content-Type-Options "nosniff"
-  Header set X-Frame-Options "SAMEORIGIN"
-  Header set X-XSS-Protection "1; mode=block"
-</IfModule>
+# Désactiver la liste des répertoires
+Options -Indexes
 
-# Compression GZIP
-<IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
-</IfModule>
-
-# Cache pour les fichiers statiques
-<IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresByType image/jpg "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/gif "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
-</IfModule>
-
+# Empêcher l'accès aux fichiers sensibles
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

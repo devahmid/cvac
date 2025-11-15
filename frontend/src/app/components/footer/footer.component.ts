@@ -12,8 +12,8 @@ import { RouterModule } from '@angular/router';
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="col-span-1 md:col-span-2">
             <div class="flex items-center space-x-4 mb-4">
-              <div class="w-12 h-12 bg-cvac-blue rounded-full flex items-center justify-center">
-                <span class="text-white font-bold">CVAC</span>
+              <div class="w-12 h-12 flex items-center justify-center">
+                <img src="/assets/images/members/logo-def-CVAC.png" alt="Logo CVAC" class="w-full h-full object-contain">
               </div>
               <div>
                 <h3 class="text-lg font-semibold">Conseil de la Vie Associative</h3>
