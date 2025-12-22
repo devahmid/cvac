@@ -2,17 +2,406 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Classes utilitaires personnalisées pour Safari - gradients avec couleurs personnalisées */
+@layer utilities {
+  .bg-gradient-cvac-cream-white {
+    background: linear-gradient(to bottom right, #F8F6F0, #ffffff) !important;
+    background-image: -webkit-linear-gradient(bottom right, #F8F6F0, #ffffff) !important;
+  }
+  
+  .bg-gradient-cvac-blue-light {
+    background: linear-gradient(to bottom right, #2B5A87, #4A7BA7) !important;
+    background-image: -webkit-linear-gradient(bottom right, #2B5A87, #4A7BA7) !important;
+  }
+  
+  .bg-gradient-cvac-blue-horizontal {
+    background: linear-gradient(to right, #2B5A87, #4A7BA7) !important;
+    background-image: -webkit-linear-gradient(left, #2B5A87, #4A7BA7) !important;
+  }
+  
+  .bg-gradient-cvac-gold-yellow {
+    background: linear-gradient(to bottom right, #D4AF37, #eab308) !important;
+    background-image: -webkit-linear-gradient(bottom right, #D4AF37, #eab308) !important;
+  }
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
 
 * {
   font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   margin: 0;
   padding: 0;
   background-color: white;
+}
+
+/* Correction critique : backdrop-blur n'est pas bien supporté sur Safari */
+/* Support pour backdrop-blur sur Safari avec préfixe webkit */
+@supports (-webkit-backdrop-filter: blur(1px)) {
+  [class*="backdrop-blur"] {
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+  
+  [class*="backdrop-blur-sm"] {
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+}
+
+/* Fallback pour les navigateurs qui ne supportent pas backdrop-filter */
+@supports not (backdrop-filter: blur(1px)) {
+  [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* Correction supplémentaire pour Safari - forcer le support webkit */
+@supports (-webkit-appearance: none) {
+  [class*="backdrop-blur"] {
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+  
+  [class*="backdrop-blur-sm"] {
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+}
+
+/* Correction pour les images sur Safari */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+img[class*="object-cover"] {
+  object-fit: cover;
+  -webkit-object-fit: cover;
+}
+
+img[class*="object-contain"] {
+  object-fit: contain;
+  -webkit-object-fit: contain;
+}
+
+/* Correction pour sticky positioning sur Safari */
+[class*="sticky"],
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+/* Correction pour les gradients sur Safari - ciblage spécifique */
+[class*="bg-gradient"] {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+
+/* Correction spécifique pour les gradients avec couleurs personnalisées Tailwind */
+/* Safari a des problèmes avec les gradients générés par Tailwind avec plusieurs classes */
+/* Approche agressive : cibler toutes les combinaisons possibles */
+
+/* Gradient cream to white */
+[class*="from-cvac-cream"][class*="to-white"],
+section[class*="from-cvac-cream"][class*="to-white"],
+div[class*="from-cvac-cream"][class*="to-white"],
+main[class*="from-cvac-cream"][class*="to-white"] {
+  background: linear-gradient(to bottom right, #F8F6F0, #ffffff) !important;
+  background-image: -webkit-linear-gradient(bottom right, #F8F6F0, #ffffff) !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+}
+
+/* Gradient blue to light-blue (bottom-right) */
+[class*="from-cvac-blue"][class*="to-cvac-light-blue"]:not([class*="bg-gradient-to-r"]),
+section[class*="from-cvac-blue"][class*="to-cvac-light-blue"]:not([class*="bg-gradient-to-r"]),
+div[class*="from-cvac-blue"][class*="to-cvac-light-blue"]:not([class*="bg-gradient-to-r"]),
+main[class*="from-cvac-blue"][class*="to-cvac-light-blue"]:not([class*="bg-gradient-to-r"]) {
+  background: linear-gradient(to bottom right, #2B5A87, #4A7BA7) !important;
+  background-image: -webkit-linear-gradient(bottom right, #2B5A87, #4A7BA7) !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+}
+
+/* Gradient blue to light-blue (horizontal) */
+[class*="bg-gradient-to-r"][class*="from-cvac-blue"][class*="to-cvac-light-blue"],
+section[class*="bg-gradient-to-r"][class*="from-cvac-blue"][class*="to-cvac-light-blue"],
+div[class*="bg-gradient-to-r"][class*="from-cvac-blue"][class*="to-cvac-light-blue"],
+main[class*="bg-gradient-to-r"][class*="from-cvac-blue"][class*="to-cvac-light-blue"] {
+  background: linear-gradient(to right, #2B5A87, #4A7BA7) !important;
+  background-image: -webkit-linear-gradient(left, #2B5A87, #4A7BA7) !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+}
+
+/* Gradient gold to yellow */
+[class*="from-cvac-gold"][class*="to-yellow-500"],
+section[class*="from-cvac-gold"][class*="to-yellow-500"],
+div[class*="from-cvac-gold"][class*="to-yellow-500"],
+main[class*="from-cvac-gold"][class*="to-yellow-500"] {
+  background: linear-gradient(to bottom right, #D4AF37, #eab308) !important;
+  background-image: -webkit-linear-gradient(bottom right, #D4AF37, #eab308) !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
+}
+
+/* Correction pour les hauteurs arbitraires sur Safari */
+/* Safari a des problèmes avec les sélecteurs contenant des crochets */
+/* On utilise une approche différente : cibler via les media queries Safari */
+
+/* Correction supplémentaire avec sélecteurs pour Safari */
+@supports (-webkit-appearance: none) {
+  /* Forcer les hauteurs pour les sections avec gradients et hauteurs fixes */
+  section[class*="bg-gradient-to-br"][class*="from-cvac-cream"][class*="to-white"][class*="min-h-"],
+  section[class*="bg-gradient-to-br"][class*="from-cvac-cream"][class*="to-white"][class*="h-"] {
+    min-height: 600px !important;
+  }
+  
+  section[class*="bg-gradient-to-br"][class*="from-cvac-cream"][class*="to-white"][class*="h-[400px"] {
+    height: 400px !important;
+    min-height: 400px !important;
+  }
+  
+  section[class*="bg-gradient-to-br"][class*="from-cvac-blue"][class*="to-cvac-light-blue"][class*="h-[400px"] {
+    height: 400px !important;
+    min-height: 400px !important;
+  }
+}
+
+/* Correction pour les sections avec flex et hauteur fixe - seulement préfixes webkit */
+@supports (-webkit-appearance: none) {
+  section[class*="flex"][class*="h-"],
+  section[class*="flex"][class*="min-h-"] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+}
+
+/* Correction pour les transformations et transitions */
+[class*="transform"],
+[class*="transition"] {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Correction pour les boutons et liens sur iOS */
+@supports (-webkit-touch-callout: none) {
+  button,
+  a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Permettre la sélection de texte */
+  p, span, h1, h2, h3, h4, h5, h6 {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+}
+
+/* Corrections supplémentaires pour Safari - problèmes de rendu courants */
+
+/* Correction pour les couleurs personnalisées Tailwind sur Safari - seulement si nécessaire */
+@supports (-webkit-appearance: none) {
+  /* Les couleurs Tailwind devraient fonctionner normalement, on garde seulement les gradients avec !important */
+}
+
+/* Correction supplémentaire avec sélecteurs de classe combinés */
+.bg-gradient-to-br.from-cvac-cream.to-white,
+section.bg-gradient-to-br.from-cvac-cream.to-white,
+div.bg-gradient-to-br.from-cvac-cream.to-white {
+  background: linear-gradient(to bottom right, #F8F6F0, #ffffff) !important;
+  background-image: -webkit-linear-gradient(bottom right, #F8F6F0, #ffffff) !important;
+}
+
+.bg-gradient-to-br.from-cvac-blue.to-cvac-light-blue,
+section.bg-gradient-to-br.from-cvac-blue.to-cvac-light-blue,
+div.bg-gradient-to-br.from-cvac-blue.to-cvac-light-blue {
+  background: linear-gradient(to bottom right, #2B5A87, #4A7BA7) !important;
+  background-image: -webkit-linear-gradient(bottom right, #2B5A87, #4A7BA7) !important;
+}
+
+.bg-gradient-to-r.from-cvac-blue.to-cvac-light-blue,
+section.bg-gradient-to-r.from-cvac-blue.to-cvac-light-blue,
+div.bg-gradient-to-r.from-cvac-blue.to-cvac-light-blue {
+  background: linear-gradient(to right, #2B5A87, #4A7BA7) !important;
+  background-image: -webkit-linear-gradient(left, #2B5A87, #4A7BA7) !important;
+}
+
+.bg-gradient-to-br.from-cvac-gold.to-yellow-500,
+section.bg-gradient-to-br.from-cvac-gold.to-yellow-500,
+div.bg-gradient-to-br.from-cvac-gold.to-yellow-500 {
+  background: linear-gradient(to bottom right, #D4AF37, #eab308) !important;
+  background-image: -webkit-linear-gradient(bottom right, #D4AF37, #eab308) !important;
+}
+
+/* Correction pour les problèmes de flexbox sur Safari - seulement avec préfixes webkit */
+@supports (-webkit-appearance: none) {
+  .flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+  }
+
+  /* Correction pour les propriétés flexbox spécifiques - seulement les préfixes */
+  .items-center {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .justify-between {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+
+  .justify-center {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+
+  /* Correction pour les problèmes de grid sur Safari - seulement préfixe */
+  .grid {
+    display: -webkit-grid;
+    display: grid;
+  }
+}
+
+/* Correction pour les problèmes de gap sur Safari - seulement si non supporté */
+@supports not (gap: 1rem) {
+  .gap-4 > * + * {
+    margin-left: 1rem;
+  }
+  
+  .gap-8 > * + * {
+    margin-left: 2rem;
+  }
+  
+  .gap-12 > * + * {
+    margin-left: 3rem;
+  }
+  
+  /* Correction pour space-x sur Safari */
+  .space-x-8 > * + * {
+    margin-left: 2rem;
+  }
+  
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+}
+
+/* Pas de correction pour rounded - Tailwind gère déjà les border-radius correctement */
+
+/* Correction spécifique pour Safari - forcer le rendu correct des éléments */
+@supports (-webkit-appearance: none) {
+  /* Correction pour les éléments avec opacité */
+  [class*="bg-white/10"],
+  [class*="bg-white/20"] {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  [class*="bg-white/20"] {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  
+  /* Pas de correction pour les ombres - Tailwind gère déjà les box-shadow correctement */
+  
+  /* Correction pour les transitions de couleur */
+  [class*="transition-colors"] {
+    -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out !important;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out !important;
+  }
+  
+  /* Correction pour les transformations hover */
+  [class*="hover:scale"],
+  [class*="group-hover:scale"] {
+    -webkit-transform: scale(1) translateZ(0);
+    transform: scale(1) translateZ(0);
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+  }
+  
+  [class*="hover:-translate"] {
+    -webkit-transform: translateY(0) translateZ(0);
+    transform: translateY(0) translateZ(0);
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+  }
+}
+
+/* Media query spécifique pour Safari desktop - corrections agressives */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  /* Force le rendu correct des gradients */
+  [class*="bg-gradient"] {
+    background-clip: padding-box !important;
+    -webkit-background-clip: padding-box !important;
+    -webkit-background-size: 100% 100% !important;
+    background-size: 100% 100% !important;
+  }
+  
+  /* Correction pour les problèmes de hauteur avec flex */
+  section[class*="flex"] {
+    min-height: 0;
+  }
+  
+  /* Correction spécifique pour les sections avec hauteur fixe et flex - seulement préfixes */
+  section[class*="flex"][class*="h-"] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  
+  section[class*="flex"][class*="min-h-"] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  
+  /* Pas de forçage de hauteur - laisser Tailwind gérer */
+  
+  /* Correction pour les grilles - seulement préfixe webkit */
+  .grid {
+    display: -webkit-grid;
+    display: grid;
+  }
+  
+  /* Pas de correction pour max-w - laisser Tailwind gérer */
+}
+
+/* Correction spécifique pour Safari - seulement pour les gradients et textes sur gradients */
+@supports (-webkit-appearance: none) {
+  /* Correction pour les textes blancs sur gradients - nécessaire car Safari peut avoir des problèmes */
+  [class*="bg-gradient"][class*="text-white"],
+  section[class*="bg-gradient"][class*="text-white"] {
+    color: #ffffff !important;
+  }
+  
+  /* Correction pour les textes blue-100 sur gradients */
+  [class*="bg-gradient"][class*="text-blue-100"],
+  section[class*="bg-gradient"][class*="text-blue-100"] {
+    color: rgba(219, 234, 254, 1) !important;
+  }
 }
 

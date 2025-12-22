@@ -1,0 +1,35 @@
+/* Fallback CSS for Safari / browsers where Tailwind CDN is blocked */
+/* Header and logo safe styles */
+header { background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 50; }
+.container-fallback { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+.row { display: flex; justify-content: space-between; align-items: center; height: 80px; gap: 12px; }
+.logo-wrap { display:flex; align-items:center; gap:12px; }
+.logo-badge { width:64px; height:64px; border-radius:50%; background:#2B5A87; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:18px; }
+header img { max-width: 64px; max-height: 64px; width: auto; height: auto; display:block; object-fit: contain; }
+
+/* Navigation fallback */
+header nav { display:flex !important; gap:18px; align-items:center; justify-content:center; flex-wrap:wrap; }
+header nav a { color:#2B5A87; text-decoration:none; font-weight:600; }
+
+/* Hero image safe rules */
+img.object-cover { max-width:100%; height:auto; display:block; object-fit:cover; }
+img { display:block; }
+
+/* Backdrop-filter fallback + prefixed rule */
+.bg-white\/10 { background-color: rgba(255,255,255,0.10); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.bg-white\/20 { background-color: rgba(255,255,255,0.20); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+
+/* Sticky support prefixed */
+header { position: -webkit-sticky; position: sticky; }
+
+/* Smooth scrolling on iOS */
+body { -webkit-overflow-scrolling: touch; }
+
+/* Utility: limit very large inline images */
+.site-logo-large { max-width:220px; height:auto; }
+
+/* Small responsive tweaks for pages without Tailwind */
+@media (max-width: 1024px) {
+  .row { height:64px; }
+  .logo-badge { width:56px; height:56px; font-size:16px; }
+}

@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
+// Configuration API - remplace l'import environment pour éviter les problèmes de bundler
+const API_URL = 'https://cvac-choisyleroi.fr/api';
+
 @Component({
   selector: 'app-members',
   standalone: true,
@@ -17,17 +20,18 @@ export class MembersComponent {
 
   // Mapping des noms vers les noms de fichiers d'images (correspond aux fichiers réels dans assets/images/members/)
   // Format: 'Nom Membre': { baseName: 'nom-fichier', extension: '.png' | '.jpg' | '.jpeg' | '.webp' }
-  private readonly memberImageMap: { [key: string]: { baseName: string; extension?: string } } = {
+  // Si baseName est null, aucune image ne sera affichée
+  private readonly memberImageMap: { [key: string]: { baseName: string | null; extension?: string } } = {
     'Ahlem ZENATI': { baseName: 'ahlem', extension: '.png' },
-    'Michèle COUDERC': { baseName: 'michele' }, // Fichier non trouvé dans le dossier
+    'Michèle COUDERC': { baseName: null }, // Pas de photo pour l'instant
     'Josette LEVÊQUE': { baseName: 'jo', extension: '.png' },
     'Rachel PRIEST': { baseName: 'rachel', extension: '.jpeg' },
     'Yvonne ZODO': { baseName: 'yvonne', extension: '.png' },
     'Eric DIOR': { baseName: 'eric', extension: '.webp' },
-    'Ahmid AIT OUALI': { baseName: 'ahmid', extension: '.jpeg' },
+    'Noham SETTBON': { baseName: 'noham', extension: '.jpeg' },
     'Azedine ARIF': { baseName: 'azedine', extension: '.png' },
     'Serge LECLERC': { baseName: 'serge', extension: '.jpeg' },
-    'Noham SETTBON': { baseName: 'noham', extension: '.jpeg' }
+    'Ahmid AIT OUALI': { baseName: 'ahmid', extension: '.jpeg' },
   };
 
   // Membres réels du CVAC (données en dur - ordre : femmes d'abord)
@@ -132,7 +136,7 @@ export class MembersComponent {
   }
 
   loadMembers() {
-    this.http.get<any>('/api/members.php').subscribe({
+    this.http.get<any>(`${API_URL}/members.php`).subscribe({
       next: (response) => {
         // Gérer la nouvelle structure avec data/pagination ou l'ancienne structure directe
         if (response.success && response.data && response.data.length > 0) {
@@ -153,11 +157,16 @@ export class MembersComponent {
   /**
    * Génère le chemin de l'image locale pour un membre
    * TOUJOURS essaie d'abord les images locales avec l'extension connue, puis essaie les autres si nécessaire
+   * Retourne une chaîne vide si aucune image ne doit être affichée
    */
   getMemberImage(member: any): string {
     // Chercher le nom de fichier dans le mapping
     const imageInfo = this.memberImageMap[member.name];
     if (imageInfo) {
+      // Si baseName est null, ne pas afficher d'image
+      if (imageInfo.baseName === null) {
+        return '';
+      }
       // Utiliser l'extension connue si disponible, sinon essayer .png par défaut
       const extension = imageInfo.extension || '.png';
       return `${this.membersImagePath}${imageInfo.baseName}${extension}`;

@@ -1,51 +1,128 @@
 <main>
-  <section class="bg-gradient-to-br from-cvac-cream to-white min-h-[80vh] flex items-center">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="mb-8">
-        <div class="w-32 h-32 bg-cvac-blue rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
-          <i class="fa-solid fa-hard-hat text-white text-5xl"></i>
-        </div>
-        <h1 class="text-5xl font-bold text-cvac-blue mb-4">Page en Construction</h1>
-        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Cette section est actuellement en cours de développement. Elle sera bientôt disponible avec toutes les actualités et événements du CVAC.
-        </p>
-      </div>
+  <!-- En-tête -->
+  <section class="bg-gradient-to-br from-cvac-blue to-cvac-light-blue py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-5xl font-bold text-white mb-4">Actualités du CVAC</h1>
+      <p class="text-xl text-white/90 max-w-2xl mx-auto">
+        Restez informés des dernières nouvelles et événements du Conseil de la Vie Associative de Choisy-le-Roi
+      </p>
+    </div>
+  </section>
+
+  <!-- Liste des actualités -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-8">
-        <div class="flex justify-center mb-6">
-          <div class="w-64 h-64 bg-cvac-cream rounded-xl flex items-center justify-center">
-            <i class="fa-solid fa-tools text-cvac-blue text-8xl"></i>
-          </div>
-        </div>
-        <h2 class="text-2xl font-semibold text-cvac-blue mb-4">À venir prochainement</h2>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          Nous travaillons activement sur cette section pour vous offrir une expérience complète de suivi des actualités et événements du Conseil de la Vie Associative de Choisy-le-Roi.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
-          <div class="flex items-center">
-            <i class="fa-solid fa-check-circle text-cvac-gold mr-2"></i>
-            <span>Actualités du CVAC</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fa-solid fa-check-circle text-cvac-gold mr-2"></i>
-            <span>Événements à venir</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fa-solid fa-check-circle text-cvac-gold mr-2"></i>
-            <span>Projets inter-associatifs</span>
-          </div>
+      <!-- Message de chargement -->
+      <div *ngIf="loading" class="text-center py-20">
+        <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-cvac-blue"></div>
+        <p class="mt-4 text-gray-600">Chargement des actualités...</p>
+      </div>
+
+      <!-- Message d'erreur -->
+      <div *ngIf="error && !loading" class="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
+        <div class="flex items-center">
+          <i class="fa-solid fa-exclamation-circle text-red-600 text-xl mr-3"></i>
+          <p class="text-red-800">{{ error }}</p>
         </div>
       </div>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a routerLink="/" class="bg-cvac-blue text-white px-8 py-4 rounded-lg font-semibold hover:bg-cvac-light-blue transition-colors">
-          <i class="fa-solid fa-home mr-2"></i>
-          Retour à l'accueil
-        </a>
-        <a routerLink="/contact" class="border-2 border-cvac-blue text-cvac-blue px-8 py-4 rounded-lg font-semibold hover:bg-cvac-blue hover:text-white transition-colors">
-          <i class="fa-solid fa-envelope mr-2"></i>
-          Nous contacter
-        </a>
+
+      <!-- Grille des actualités -->
+      <div *ngIf="!loading && !error" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <article 
+          *ngFor="let article of news" 
+          class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100 group cursor-pointer"
+          routerLink="/news/{{ article.id }}">
+          
+          <!-- Image avec Cloudinary -->
+          <div class="h-64 overflow-hidden bg-gray-200">
+            <img 
+              [src]="getNewsImageUrl(article)" 
+              [alt]="article.title"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              (error)="onImageError($event)">
+          </div>
+          
+          <!-- Contenu -->
+          <div class="p-6">
+            <!-- Catégorie et date -->
+            <div class="flex items-center justify-between mb-3">
+              <span *ngIf="article.category" class="inline-block bg-cvac-cream text-cvac-blue text-xs font-semibold px-3 py-1 rounded-full">
+                {{ article.category }}
+              </span>
+              <span class="text-sm text-gray-500">
+                <i class="fa-regular fa-calendar mr-1"></i>
+                {{ formatDate(article.date) }}
+              </span>
+            </div>
+            
+            <!-- Titre -->
+            <h3 class="text-xl font-bold text-cvac-blue mb-3 group-hover:text-cvac-light-blue transition-colors">
+              {{ article.title }}
+            </h3>
+            
+            <!-- Extrait -->
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              {{ article.excerpt || getExcerpt(article.content) }}
+            </p>
+            
+            <!-- Métadonnées -->
+            <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+              <span class="text-sm text-gray-500">
+                <i class="fa-regular fa-eye mr-1"></i>
+                {{ article.views || 0 }} vues
+              </span>
+              <span class="text-cvac-blue font-semibold group-hover:text-cvac-light-blue transition-colors">
+                Lire la suite <i class="fa-solid fa-arrow-right ml-1"></i>
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Message si aucune actualité -->
+      <div *ngIf="!loading && !error && news.length === 0" class="text-center py-20">
+        <div class="w-24 h-24 bg-cvac-cream rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fa-regular fa-newspaper text-cvac-blue text-4xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-cvac-blue mb-2">Aucune actualité pour le moment</h3>
+        <p class="text-gray-600">Les actualités seront publiées prochainement.</p>
+      </div>
+
+      <!-- Pagination -->
+      <div *ngIf="!loading && !error && totalPages > 1" class="flex justify-center items-center space-x-2 mt-12">
+        <button 
+          (click)="onPageChange(currentPage - 1)"
+          [disabled]="currentPage === 1"
+          class="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+          <i class="fa-solid fa-chevron-left mr-1"></i>
+          Précédent
+        </button>
+        
+        <div class="flex space-x-1">
+          <button 
+            *ngFor="let page of [].constructor(totalPages); let i = index"
+            (click)="onPageChange(i + 1)"
+            [class.bg-cvac-blue]="currentPage === i + 1"
+            [class.text-white]="currentPage === i + 1"
+            [class.text-gray-700]="currentPage !== i + 1"
+            class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+            {{ i + 1 }}
+          </button>
+        </div>
+        
+        <button 
+          (click)="onPageChange(currentPage + 1)"
+          [disabled]="currentPage === totalPages"
+          class="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+          Suivant
+          <i class="fa-solid fa-chevron-right ml-1"></i>
+        </button>
+      </div>
+
+      <!-- Informations pagination -->
+      <div *ngIf="!loading && !error && totalItems > 0" class="text-center mt-4 text-sm text-gray-500">
+        Affichage de {{ (currentPage - 1) * itemsPerPage + 1 }} à {{ Math.min(currentPage * itemsPerPage, totalItems) }} sur {{ totalItems }} actualités
       </div>
     </div>
   </section>

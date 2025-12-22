@@ -4,7 +4,164 @@ require_once 'config.php';
 try {
     $pdo = getDB();
     
-    // Récupérer les paramètres de la requête
+    // Gérer les requêtes POST (création)
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $data = json_decode(file_get_contents('php://input'), true);
+        
+        // Validation des données requises
+        if (empty($data['title']) || empty($data['content'])) {
+            http_response_code(400);
+            echo json_encode(['error' => 'Le titre et le contenu sont requis'], JSON_UNESCAPED_UNICODE);
+            exit();
+        }
+        
+        // Préparer les données
+        $title = sanitize($data['title']);
+        $content = sanitize($data['content']);
+        $excerpt = isset($data['excerpt']) ? sanitize($data['excerpt']) : null;
+        $category = isset($data['category']) ? sanitize($data['category']) : null;
+        $date = isset($data['date']) ? sanitize($data['date']) : date('Y-m-d');
+        $cloudinaryPublicId = isset($data['cloudinary_public_id']) ? sanitize($data['cloudinary_public_id']) : null;
+        
+        // Générer un extrait si non fourni
+        if (!$excerpt) {
+            $excerpt = mb_substr(strip_tags($content), 0, 200) . '...';
+        }
+        
+        // Insérer en base de données
+        $stmt = $pdo->prepare("
+            INSERT INTO news (title, content, excerpt, category, date, cloudinary_public_id) 
+            VALUES (?, ?, ?, ?, ?, ?)
+        ");
+        $stmt->execute([$title, $content, $excerpt, $category, $date, $cloudinaryPublicId]);
+        
+        $newId = $pdo->lastInsertId();
+        
+        // Récupérer l'actualité créée
+        $stmt = $pdo->prepare("SELECT * FROM news WHERE id = ?");
+        $stmt->execute([$newId]);
+        $newsItem = $stmt->fetch();
+        
+        http_response_code(201);
+        echo json_encode([
+            'success' => true,
+            'message' => 'Actualité créée avec succès',
+            'data' => $newsItem
+        ], JSON_UNESCAPED_UNICODE);
+        exit();
+    }
+    
+    // Gérer les requêtes PUT (mise à jour)
+    if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+        $data = json_decode(file_get_contents('php://input'), true);
+        $id = isset($_GET['id']) ? (int)$_GET['id'] : (isset($data['id']) ? (int)$data['id'] : null);
+        
+        if (!$id) {
+            http_response_code(400);
+            echo json_encode(['error' => 'ID requis pour la mise à jour'], JSON_UNESCAPED_UNICODE);
+            exit();
+        }
+        
+        // Vérifier que l'actualité existe
+        $checkStmt = $pdo->prepare("SELECT id FROM news WHERE id = ?");
+        $checkStmt->execute([$id]);
+        if (!$checkStmt->fetch()) {
+            http_response_code(404);
+            echo json_encode(['error' => 'Actualité non trouvée'], JSON_UNESCAPED_UNICODE);
+            exit();
+        }
+        
+        // Construire la requête de mise à jour dynamiquement
+        $updates = [];
+        $params = [];
+        
+        if (isset($data['title'])) {
+            $updates[] = "title = ?";
+            $params[] = sanitize($data['title']);
+        }
+        if (isset($data['content'])) {
+            $updates[] = "content = ?";
+            $params[] = sanitize($data['content']);
+        }
+        if (isset($data['excerpt'])) {
+            $updates[] = "excerpt = ?";
+            $params[] = sanitize($data['excerpt']);
+        }
+        if (isset($data['category'])) {
+            $updates[] = "category = ?";
+            $params[] = sanitize($data['category']);
+        }
+        if (isset($data['date'])) {
+            $updates[] = "date = ?";
+            $params[] = sanitize($data['date']);
+        }
+        if (isset($data['cloudinary_public_id'])) {
+            $updates[] = "cloudinary_public_id = ?";
+            $params[] = sanitize($data['cloudinary_public_id']);
+        }
+        
+        if (empty($updates)) {
+            http_response_code(400);
+            echo json_encode(['error' => 'Aucune donnée à mettre à jour'], JSON_UNESCAPED_UNICODE);
+            exit();
+        }
+        
+        $updates[] = "updated_at = CURRENT_TIMESTAMP";
+        $params[] = $id;
+        
+        $updateQuery = "UPDATE news SET " . implode(", ", $updates) . " WHERE id = ?";
+        $stmt = $pdo->prepare($updateQuery);
+        $stmt->execute($params);
+        
+        // Récupérer l'actualité mise à jour
+        $stmt = $pdo->prepare("SELECT * FROM news WHERE id = ?");
+        $stmt->execute([$id]);
+        $newsItem = $stmt->fetch();
+        
+        echo json_encode([
+            'success' => true,
+            'message' => 'Actualité mise à jour avec succès',
+            'data' => $newsItem
+        ], JSON_UNESCAPED_UNICODE);
+        exit();
+    }
+    
+    // Gérer les requêtes DELETE
+    if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+        $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
+        
+        if (!$id) {
+            http_response_code(400);
+            echo json_encode(['error' => 'ID requis pour la suppression'], JSON_UNESCAPED_UNICODE);
+            exit();
+        }
+        
+        // Vérifier que l'actualité existe
+        $checkStmt = $pdo->prepare("SELECT cloudinary_public_id FROM news WHERE id = ?");
+        $checkStmt->execute([$id]);
+        $newsItem = $checkStmt->fetch();
+        
+        if (!$newsItem) {
+            http_response_code(404);
+            echo json_encode(['error' => 'Actualité non trouvée'], JSON_UNESCAPED_UNICODE);
+            exit();
+        }
+        
+        // Supprimer l'image de Cloudinary si elle existe (optionnel)
+        // TODO: Implémenter la suppression Cloudinary si nécessaire
+        
+        // Supprimer de la base de données
+        $stmt = $pdo->prepare("DELETE FROM news WHERE id = ?");
+        $stmt->execute([$id]);
+        
+        echo json_encode([
+            'success' => true,
+            'message' => 'Actualité supprimée avec succès'
+        ], JSON_UNESCAPED_UNICODE);
+        exit();
+    }
+    
+    // Récupérer les paramètres de la requête (GET)
     $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
     $category = isset($_GET['category']) ? sanitize($_GET['category']) : null;
     $year = isset($_GET['year']) ? (int)$_GET['year'] : null;

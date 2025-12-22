@@ -46,6 +46,9 @@ function getDB() {
 
 // Fonction pour sécuriser les données
 function sanitize($data) {
+    if ($data === null || $data === '') {
+        return null;
+    }
     return htmlspecialchars(strip_tags(trim($data)));
 }
 

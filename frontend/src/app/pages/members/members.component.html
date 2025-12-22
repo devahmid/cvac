@@ -71,7 +71,7 @@
         <!-- Présidente -->
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden" *ngFor="let member of bureau; let i = index">
           <div [ngClass]="i === 0 ? 'bg-gradient-to-br from-cvac-blue to-cvac-light-blue p-6 text-center' : 'bg-gradient-to-br from-cvac-gold to-yellow-500 p-6 text-center'">
-            <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
+            <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg" *ngIf="getMemberImage(member)">
               <img [src]="getMemberImage(member)" [alt]="member.name" (error)="onImageError($event, member)" class="w-full h-full object-cover">
             </div>
             <div [ngClass]="i === 0 ? 'bg-cvac-gold text-white px-4 py-1 rounded-full text-sm font-semibold mb-2 inline-block' : 'bg-cvac-blue text-white px-4 py-1 rounded-full text-sm font-semibold mb-2 inline-block'">
@@ -103,7 +103,7 @@
         <div *ngFor="let member of membresActifs" class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
           <div class="p-6">
             <div class="flex items-center mb-4">
-              <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-cvac-blue mr-4">
+              <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-cvac-blue mr-4" *ngIf="getMemberImage(member)">
                 <img [src]="getMemberImage(member)" [alt]="member.name" (error)="onImageError($event, member)" class="w-full h-full object-cover">
               </div>
               <div>

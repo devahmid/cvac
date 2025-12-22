@@ -1,35 +1,103 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
   <meta charset="utf-8">
-  <title>CVAC - Conseil de la Vie Associative de Choisy-le-Roi</title>
+  <title>CVAC - Conseil de la Vie Associative de Choisy-le-Roi | Annuaire des Associations</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            'montserrat': ['Montserrat', 'sans-serif'],
-          },
-          colors: {
-            'cvac-blue': '#2B5A87',
-            'cvac-gold': '#D4AF37',
-            'cvac-light-blue': '#4A7BA7',
-            'cvac-cream': '#F8F6F0',
-          }
-        }
-      }
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="CVAC Choisy-le-Roi : Découvrez l'annuaire des associations de Choisy-le-Roi. Conseil de la Vie Associative au service des associations et des habitants. Trouvez une association, rejoignez-nous !">
+  <meta name="keywords" content="CVAC, Choisy-le-Roi, associations Choisy-le-Roi, annuaire associations, conseil vie associative, associations 94, Val-de-Marne, associations culturelles, associations sportives, associations solidarité">
+  <meta name="author" content="CVAC - Conseil de la Vie Associative de Choisy-le-Roi">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="French">
+  <meta name="geo.region" content="FR-94">
+  <meta name="geo.placename" content="Choisy-le-Roi">
+  <meta name="geo.position" content="48.7687;2.4097">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cvac-choisyleroi.fr/">
+  <meta property="og:title" content="CVAC - Conseil de la Vie Associative de Choisy-le-Roi">
+  <meta property="og:description" content="Découvrez l'annuaire des associations de Choisy-le-Roi. Conseil de la Vie Associative au service des associations et des habitants.">
+  <meta property="og:image" content="https://cvac-choisyleroi.fr/assets/images/members/logo-def-CVAC.png">
+  <meta property="og:locale" content="fr_FR">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://cvac-choisyleroi.fr/">
+  <meta property="twitter:title" content="CVAC - Conseil de la Vie Associative de Choisy-le-Roi">
+  <meta property="twitter:description" content="Découvrez l'annuaire des associations de Choisy-le-Roi. Conseil de la Vie Associative au service des associations et des habitants.">
+  <meta property="twitter:image" content="https://cvac-choisyleroi.fr/assets/images/members/logo-def-CVAC.png">
+  
+  <!-- Viewport et Mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/logo.ico">
+  <link rel="canonical" href="https://cvac-choisyleroi.fr/">
+  
+  <!-- Données structurées JSON-LD pour le référencement -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CVAC - Conseil de la Vie Associative de Choisy-le-Roi",
+    "alternateName": "CVAC Choisy-le-Roi",
+    "url": "https://cvac-choisyleroi.fr",
+    "logo": "https://cvac-choisyleroi.fr/assets/images/members/logo-def-CVAC.png",
+    "description": "Conseil de la Vie Associative de Choisy-le-Roi - Instance consultative au service des associations et des habitants. Annuaire des associations de Choisy-le-Roi.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Choisy-le-Roi",
+      "addressRegion": "Val-de-Marne",
+      "postalCode": "94600",
+      "addressCountry": "FR"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "contact@cvac-choisyleroi.fr",
+      "contactType": "Service client",
+      "areaServed": "FR",
+      "availableLanguage": "French"
+    },
+    "sameAs": [
+      "https://cvac-choisyleroi.fr"
+    ],
+    "areaServed": {
+      "@type": "City",
+      "name": "Choisy-le-Roi"
     }
+  }
   </script>
-  <script>window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CVAC - Conseil de la Vie Associative de Choisy-le-Roi",
+    "url": "https://cvac-choisyleroi.fr",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://cvac-choisyleroi.fr/directory?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script>window.FontAwesomeConfig = { autoReplaceSvg: 'nest' };</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
 </head>
+
 <body class="font-montserrat bg-white">
   <app-root></app-root>
 </body>
-</html>
 
+</html>

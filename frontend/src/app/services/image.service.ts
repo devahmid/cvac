@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 
+// Configuration API - remplace l'import environment pour éviter les problèmes de bundler
+const API_URL = 'https://cvac-choisyleroi.fr/api';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -118,7 +121,7 @@ export class ImageService {
   /**
    * Image par défaut
    */
-  private getDefaultImage(): string {
+  public getDefaultImage(): string {
     // Retourner une image placeholder ou une image par défaut
     return 'https://via.placeholder.com/800x600?text=CVAC';
   }
@@ -133,7 +136,7 @@ export class ImageService {
       formData.append('type', type);
 
       const xhr = new XMLHttpRequest();
-      xhr.open('POST', '/api/upload.php', true);
+      xhr.open('POST', `${API_URL}/upload.php`, true);
 
       xhr.onload = () => {
         if (xhr.status === 200) {

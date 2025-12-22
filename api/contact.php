@@ -1,5 +1,6 @@
 <?php
 require_once 'config.php';
+require_once 'email_config.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -57,20 +58,26 @@ try {
         sanitize($data['message'])
     ]);
     
-    // Envoyer un email (optionnel)
-    $to = 'cvac@choisy-le-roi.fr';
+    // Envoyer un email via la fonction mail() native de PHP
+    $to = FROM_EMAIL; // Email de réception des messages de contact
     $subject = 'Nouveau message CVAC: ' . sanitize($data['subject']);
-    $message = "Nouveau message reçu via le formulaire de contact:\n\n";
+    
+    // Message formaté
+    $message = "Nouveau message reçu via le formulaire de contact du CVAC:\n\n";
     $message .= "Nom: " . sanitize($data['firstname']) . " " . sanitize($data['lastname']) . "\n";
     $message .= "Email: " . sanitize($data['email']) . "\n";
     $message .= "Association: " . sanitize($data['association'] ?? 'N/A') . "\n";
     $message .= "Sujet: " . sanitize($data['subject']) . "\n\n";
     $message .= "Message:\n" . sanitize($data['message']);
     
-    $headers = "From: " . sanitize($data['email']) . "\r\n";
-    $headers .= "Reply-To: " . sanitize($data['email']) . "\r\n";
+    // Envoyer l'email via la fonction mail() native
+    $replyToName = sanitize($data['firstname']) . " " . sanitize($data['lastname']);
+    $mailSent = sendEmailViaSMTP($to, $subject, $message, sanitize($data['email']), $replyToName);
     
-    // mail($to, $subject, $message, $headers); // Décommenter pour activer l'envoi d'email
+    // Log pour debug (optionnel)
+    if (!$mailSent) {
+        error_log("Erreur envoi email CVAC via SMTP");
+    }
     
     http_response_code(200);
     echo json_encode(['success' => true, 'message' => 'Message envoyé avec succès']);

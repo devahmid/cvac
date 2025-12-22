@@ -49,11 +49,15 @@ import { RouterModule } from '@angular/router';
           <div>
             <h4 class="text-lg font-semibold mb-4">Contact</h4>
             <div class="space-y-2 text-gray-400">
-              <p class="flex items-center">
+              <a href="mailto:cvac.choisy@gmail.com" class="flex items-center hover:text-white transition-colors">
                 <i class="fa-solid fa-envelope mr-2"></i>
-                cvac&#64;choisy-le-roi.fr
-              </p>
-              <p class="flex items-center">
+                cvac.choisy&#64;gmail.com
+              </a>
+              <a href="mailto:contact@cvac-choisyleroi.fr" class="flex items-center hover:text-white transition-colors">
+                <i class="fa-solid fa-envelope mr-2"></i>
+                contact&#64;cvac-choisyleroi.fr
+              </a>
+              <p class="flex items-center mt-4">
                 <i class="fa-solid fa-map-marker-alt mr-2"></i>
                 Mairie de Choisy-le-Roi
               </p>

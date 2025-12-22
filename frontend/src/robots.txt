@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://cvac-choisyleroi.fr/sitemap.xml
+
+# Pages à ne pas indexer
+Disallow: /admin
+Disallow: /profile
+Disallow: /login
+Disallow: /signup
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /directory/register
+Disallow: /directory/*/edit
+
+# Autoriser les pages publiques importantes
+Allow: /
+Allow: /directory
+Allow: /directory/*
+Allow: /news
+Allow: /news/*
+Allow: /contact
+Allow: /about
+Allow: /members
+

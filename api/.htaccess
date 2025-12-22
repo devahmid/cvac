@@ -1,5 +1,11 @@
-d# Configuration .htaccess pour CVAC - API PHP
+# Configuration .htaccess pour CVAC - API PHP
 # Hébergement mutualisé
+
+# S'assurer que les fichiers PHP sont exécutés
+<IfModule mod_mime.c>
+    AddType application/x-httpd-php .php
+    AddHandler application/x-httpd-php .php
+</IfModule>
 
 # Activer le moteur de réécriture
 <IfModule mod_rewrite.c>
